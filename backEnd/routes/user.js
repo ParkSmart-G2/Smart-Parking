@@ -1,24 +1,16 @@
-const express = require('express')
-const router = express.Router()
-User = require("../models/user")
+const router = require('express').Router();
+const { register, login, logout } = require('../controller/Auth');
+const { verifyToken } = require('../middlewares/authJWT');
 
-//creating One user
+module.exports = app => {
+    // Auth routes
+    router.post('/auth/register', register);
+    router.post('/auth/login', login);
+    router.post('/auth/logout', verifyToken, logout);
 
-//getting One user
+    
 
-//getting ALL user
-router.get('/allUser', async (req, res) => {
-    try {
-      const users = await User.find()
-      res.json(subscribers)
-    } catch (err) {
-      res.status(500).json({ message: err.message })
-    }
-  })
-
-//Updating user
-
-//deleting one user
-
+    app.use('/api', router);
+}
 
 module.exports = router
