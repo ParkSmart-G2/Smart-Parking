@@ -1,28 +1,33 @@
-const User = require('../model/User');
+const user = require('../models/user');
 const bcrypt = require('bcrypt');
 const { generateToken } = require('../middlewares/authJWT');
 
 // Register
-exports.register = async (req, res) => {
-
-    if(!req.body.username || !req.body.password || !req.body.email){
-        res.status(400).send({message: "All fields are required."});
-        return;
+exports.register = (req, res) => {
+ 
+    if (!req.body.firstName || !req.body.lastName  || !req.body.plateNumber || !req.body.password || !req.body.email) {
+      return res.status(400).send({ message: "All fields are required." });
     }
-
-    await User.create(req.body)
-    .then(() => res.status(200).send({message: `User ${req.body.email} has been created successfully.`}))
-    .catch(err => {
-        if(err.errors){
-            res.status(400).send({message: err.errors[0].message});
-        }else if(err.error){
-            res.status(400).send({message: err.error.message});
-        }else{
-            res.status(400).send({message: err || "Invalid credentials: username and email should be unique, password should be more than 6 caracters."});
-        }
+    const newUser = new user({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      plateNumber: req.body.plateNumber,
+      password: req.body.password,
+      email: req.body.email
     });
-    
-}
+  
+    newUser.save()
+      .then(() => res.status(200).send({ message:` User ${req.body.email} has been created successfully.` }))
+      .catch(err => {
+        if (err.errors) {
+          res.status(400).send({ message: err.errors[0].message });
+        } else if (err.error) {
+          res.status(400).send({ message: err.error.message });
+        } else {
+          res.status(400).send({ message: err || "Invalid credentials: username and email should be unique, password should be more than 6 characters." });
+        }
+      });
+  };
 
 
 
@@ -35,7 +40,7 @@ exports.login = async (req, res) => {
         return;
     }
 
-    await User.findAll({
+    await user.findAll({
         where:{ email }
     })
     .then( data => {
