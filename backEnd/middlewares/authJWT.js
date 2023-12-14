@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const accessSecretKey = process.env.ACCESS_SECRET_KEY;
 
