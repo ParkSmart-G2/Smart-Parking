@@ -10,7 +10,6 @@ const { verifyToken } = require('../middlewares/authJWT');
 
     
 
-    //  app.use('/api', router);
 
 
 module.exports = router

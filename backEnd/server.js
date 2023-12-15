@@ -4,15 +4,15 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const authroute = require("./routes/user");
 const dotenv =require("dotenv");
-
+// mongodb://localhost:27017/SmartPark
 // Establishing MongoDB connection without deprecated options
-mongoose.connect("mongodb://localhost:27017/SmartPark")
+mongoose.connect("mongodb://0.0.0.0/SmartPark")
   .then(() => console.log("Connected to DB"))
   .catch((err) => console.error("Error connecting to DB:", err));
 
 const app = express();
 dotenv.config()
-const port = 4444;
+const port = 4445;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
