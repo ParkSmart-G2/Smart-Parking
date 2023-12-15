@@ -2,34 +2,70 @@ const user = require('../models/user');
 const bcrypt = require('bcrypt');
 const { generateToken } = require('../middlewares/authJWT');
 
-// Register
-exports.register = (req, res) => {
- 
-    if (!req.body.firstName || !req.body.lastName  || !req.body.plateNumber || !req.body.password || !req.body.email) {
-      return res.status(400).send({ message: "All fields are required." });
-    }
-    const newUser = new user({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      plateNumber: req.body.plateNumber,
-      password: req.body.password,
-      email: req.body.email
-    });
+function isEmailValid(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+function isPlateNumberValid(plateNumber) {
+  const plateNumberRegex1 = /^\d+\s?نت$/; 
+  const plateNumberRegex2 = /^\d+\s?rs$/; 
+  const plateNumberRegex3 = /^0[1-9]$|^1\d$|^2[0-3]$/; 
+  const plateNumberRegex4 = /^(\d{1,4}\s?تونس\s?\d{1,2}|[1-9]\d{4})$/; 
   
-    newUser.save()
-      .then(() => res.status(200).send({ message:` User ${req.body.email} has been created successfully.` }))
-      .catch(err => {
-        if (err.errors) {
-          res.status(400).send({ message: err.errors[0].message });
-        } else if (err.error) {
-          res.status(400).send({ message: err.error.message });
-        } else {
-          res.status(400).send({ message: err || "Invalid credentials: username and email should be unique, password should be more than 6 characters." });
-        }
-      });
-  };
+  return (
+    plateNumberRegex1.test(plateNumber) ||
+    plateNumberRegex2.test(plateNumber) ||
+    plateNumberRegex3.test(plateNumber) ||
+    plateNumberRegex4.test(plateNumber)
+  );
+}
 
+// Register
+exports.register = async (req, res) => {
+  const { firstName, lastName, plateNumber, password, email } = req.body;
 
+  // Validate email format
+  if (!isEmailValid(email)) {
+    return res.status(400).send({ message: "Invalid email format." });
+  }
+
+    if (!firstName || !lastName || !plateNumber || !password || !email) {
+    return res.status(400).send({ message: "All fields are required." });
+  }
+
+  if (!isPlateNumberValid(plateNumber)) {
+    return res.status(400).send({ message: "Invalid plate number format." });
+  }
+
+  try {
+    const existingUser = await user.findOne({ where: { email } });
+
+    if (existingUser) {
+      return res.status(400).send({ message: "Email already exists." });
+    }
+
+    const newUser = new user({
+      firstName,
+      lastName,
+      plateNumber,
+      password,
+      email,
+    });
+
+    await newUser.save();
+
+    return res.status(200).send({ message: `User ${email} has been created successfully.` });
+  } catch (err) {
+    if (err.errors) {
+      return res.status(400).send({ message: err.errors[0].message });
+    } else if (err.error) {
+      return res.status(400).send({ message: err.error.message });
+    } else {
+      return res.status(400).send({ message: err || "Invalid credentials: username and email should be unique, password should be more than 6 characters." });
+    }
+  }
+};
 
 // login user
 exports.login = async (req, res) => {
