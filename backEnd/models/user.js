@@ -1,4 +1,3 @@
-// User.js
 const mongoose = require('mongoose');
 const Reservation = require('./Reservation'); // Update the path accordingly
 
@@ -30,6 +29,15 @@ const userSchema = new mongoose.Schema({
     unique: true,
     trim: true,
   },
+  phoneNumber: { 
+    type: String, 
+    required: true
+   },
+  isAdmin: { 
+    type: Boolean,
+     default: false 
+    },
+  codeAdmin: { type: String },
   reservations: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Reservation' }],
   reservationHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Reservation' }],
 });

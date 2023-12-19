@@ -1,16 +1,16 @@
-// require('dotenv').config();
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const accessSecretKey = process.env.ACCESS_SECRET_KEY;
 
 
-// Generate token
+
+
 exports.generateToken = (user) => {
-    return jwt.sign(
-        {id: user.id},
-        accessSecretKey,
-        {expiresIn: "15m"}
-    );
+    const payload = {id: user.id}
+const secretKey = 'secret'
+    return jwt.sign(payload,secretKey)
 }
+
 
 
 // Verify token

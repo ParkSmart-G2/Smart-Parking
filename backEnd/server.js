@@ -13,7 +13,7 @@ mongoose.connect("mongodb://0.0.0.0/SmartPark")
 
 const app = express();
 dotenv.config()
-const port = 4443;
+const port = 4444;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
