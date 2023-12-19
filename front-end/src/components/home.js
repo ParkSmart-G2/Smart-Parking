@@ -1,8 +1,8 @@
 import React from 'react'
 
-const home = () => {
+const home = ({userData}) => {
   return (
-    <div>home
+    <div>hello 
     </div>
   )
 }

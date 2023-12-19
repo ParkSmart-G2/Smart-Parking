@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Signin.css"; 
-const SignIn = () => {
+const SignIn = ({ setUserData }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -25,6 +25,9 @@ const SignIn = () => {
     try {
       const response = await axios.post("http://localhost:4444/api/auth/login", formData);
       console.log(response.data);
+      console.log(response.data.user)
+      setUserData(response.data.user)
+      
       
     } catch (error) {
       console.error(error.response.data);
