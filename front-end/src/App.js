@@ -2,8 +2,8 @@
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import "./App.css"
 import { useState } from "react";
-import SignUp from "./components/Auth/Signup"
-import SignIn from "./components/Auth/Signin"
+import SignUp from "./components/Signup"
+import SignIn from "./components/Signin"
 import Home from "./components/Home"
 import AboutUs from "./components/AboutUs";
 import Services from "./components/Services";
@@ -19,7 +19,7 @@ import ProfileSettings from "./components/ProfileSettings";
 import Wallet from "./components/Wallet";
 
 function App() {
-  const [userData, setUserData] = useState({});
+  const [userData,setUserData] = useState({});
 
   return (
     <div className="App">
@@ -30,8 +30,8 @@ function App() {
 
 <Routes>
   
-<Route path="/" element={<Home/>} />
-<Route path="/SignIn" element={<SignIn setUserData={setUserData}/>} />
+<Route path="/Home" element={<Home userData={userData}/>} />
+<Route path="/" element={<SignIn setUserData={setUserData} />} />
 <Route path="/SignUp" element={<SignUp/>} />
 <Route path="/About-Us" element={<AboutUs userData={userData}/>} />
 <Route path="/services" element={<Services userData={userData}/>} />

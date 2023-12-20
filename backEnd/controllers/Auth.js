@@ -97,20 +97,29 @@ exports.login = async (req, res) => {
       const token = generateToken(user);
 
       res.status(200).send({
-        user: {
-          // id: user._id,
-          // username: user.firstName, // Replace with the actual field in your user model
-          email: user.email,
-          password:user.password,
-          accessToken: token,
-        },
+        
+        message: 'Login successful',
+        // user: {
+        //   id: user._id,
+        //   firstName:user.firstName,
+        //   lastName: user.lastName,
+        //   plateNumber:user.plateNumber,
+        //   phoneNumber:user.phoneNumber,
+        //   email: user.email,
+        //   password:user.password,
+        //   accessToken: token,
+        // },
+        user:user,
       });
+
     }
+    
   } catch (err) {
     console.error(err);
     res.status(500).send({ message: 'Internal server error.' });
   }
 };
+
 
 exports.logout = async (req, res) => {
   try {

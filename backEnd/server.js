@@ -6,6 +6,7 @@ const authroute = require("./routes/user");
 const reservationRoute = require("./routes/reservation")
 const dotenv =require("dotenv");
 // mongodb://localhost:27017/SmartPark
+// mongodb://0.0.0.0/SmartPark
 // Establishing MongoDB connection without deprecated options
 mongoose.connect("mongodb://0.0.0.0/SmartPark")
   .then(() => console.log("Connected to DB"))

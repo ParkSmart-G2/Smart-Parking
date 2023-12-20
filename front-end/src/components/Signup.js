@@ -65,6 +65,8 @@ const SignUp = () => {
 
       const response = await axios.post(signUpPath, formData);
       console.log(response.data);
+      window.location.href = '/Signin'
+
     } catch (error) {
       console.error(error.response.data);
     }
