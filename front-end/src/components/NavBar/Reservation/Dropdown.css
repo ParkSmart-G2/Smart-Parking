@@ -1,13 +1,11 @@
 .dropdown-menu {
-  background: rgb(31, 30, 30);
-  width: 200px;
-  position: absolute;
-  top: 80px;
-  list-style: none;
-  text-align: start;
-  z-index: 1000; /* Adjust the value as needed, it should be higher than other elements */
-}
-
+    background: rgb(31, 30, 30);
+    width: 200px;
+    position: absolute;
+    top: 60px;
+    list-style: none;
+    text-align: start;
+  }
   
   .dropdown-menu li {
     background: rgb(31, 30, 30);
@@ -15,7 +13,7 @@
   }
   
   .dropdown-menu li:hover {
-    background: #a8a8a8;
+    background: #5cabff;
   }
   
   .dropdown-menu.clicked {

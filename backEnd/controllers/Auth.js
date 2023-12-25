@@ -37,6 +37,7 @@ exports.register = async (req, res) => {
   if (!isPlateNumberValid(plateNumber)) {
     return res.status(400).send({ message: 'Invalid plate number format.' });
   }
+  
 
   try {
     // Check if it's an admin signup and validate admin code

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const Reservation = require('./Reservation'); 
 
-const userSchema = new mongoose.Schema({
+const spotSchema = new mongoose.Schema({
     spotNumber: {
         type: Number,
         required: true,
@@ -21,4 +22,4 @@ const userSchema = new mongoose.Schema({
 
 
 
-module.exports = mongoose.model('Spot', userSchema);
+module.exports = mongoose.model('Spot', spotSchema);

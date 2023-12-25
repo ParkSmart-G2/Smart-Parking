@@ -1,0 +1,43 @@
+body {
+    font-family: sans-serif;
+    
+  }
+  
+  .wrapper {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+    
+  }
+  
+  .page-container {
+    text-align: center;
+  }
+  .container {
+    background: #212121;
+    padding: 15px;
+    border-radius: 20px;
+    width: 900px;
+    
+  }
+
+  
+  .price-info {
+    display: flex;
+  justify-content: center;
+  }
+  
+  .title {
+    color: #2998FF;
+    margin-right: 10px; /* Adjust the margin as needed */
+  }
+  
+  .prices-hour {
+    color: aliceblue;
+    
+  }
+  
+  h1 {
+    color: #2998FF;
+  }
+  

@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+/* {added} */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  /* Add other global styles as needed */
+}
+
+/* Add your responsive styles here */
+@media (max-width: 768px) {
+  /* Responsive styles for screens up to 768px width */
+  /* Example: Adjust font size or margins for smaller screens */
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Responsive styles for screens up to 480px width */
+  /* Example: Adjust font size or margins for even smaller screens */
+  body {
+    font-size: 12px;
+  }
+}

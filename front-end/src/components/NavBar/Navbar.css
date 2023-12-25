@@ -95,28 +95,28 @@ nav .menu span {
  */
 
  .navbar {
-    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-  }
-  
-  .navbar-logo {
-    color: #1888ff;
-    justify-self: start;
-    margin-left: 20px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 2rem;
-  }
-  
-  .fa-firstdraft {
-    margin-left: 0.5rem;
-    font-size: 1.6rem;
-  }
-  
+  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.navbar-logo {
+  color: #1888ff;
+  margin-left: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+  display: flex; /* Add this property */
+  align-items: center; /* Add this property */
+}
+
+.fa-firstdraft {
+  margin-left: 0.5rem;
+  font-size: 1.6rem;
+}
   .nav-menu {
     display: grid;
     grid-template-columns: repeat(5, auto);

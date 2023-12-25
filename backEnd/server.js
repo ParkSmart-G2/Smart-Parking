@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const authroute = require("./routes/user");
 const reservationRoute = require("./routes/reservation")
+const adminRoute = require("./routes/admin")
+const spotRoute = require("./routes/spot")
 const dotenv =require("dotenv");
 // mongodb://localhost:27017/SmartPark
 // mongodb://0.0.0.0/SmartPark

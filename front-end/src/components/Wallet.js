@@ -1,8 +1,13 @@
 import React from 'react'
 
-const Wallet = () => {
+const Wallet = ({userData}) => {
   return (
-    <div>Wallet</div>
+    <div className='wrapper'>
+      <div className='header'>
+  <h1>Your credit :</h1>
+  <h1>{userData.wallet}</h1>
+  </div>
+    </div>
   )
 }
 

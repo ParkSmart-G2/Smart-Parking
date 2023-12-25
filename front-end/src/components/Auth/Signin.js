@@ -96,6 +96,9 @@ import "./Signin.css";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = ({ setUserData }) => {
+ 
+
+
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: "",
@@ -133,9 +136,13 @@ const SignIn = ({ setUserData }) => {
     }
   };
   return (
+    <div>
     <div className="signin">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit} className="signinContainer">
+ 
+            <form onSubmit={handleSubmit} className="signinContainerandSignIn">
+
+      <h1>Login</h1>
+      <form onSubmit={handleSubmit} className="signInContainer">
         <label>Email:</label>
         <input
           type="email"
@@ -154,15 +161,16 @@ const SignIn = ({ setUserData }) => {
         />
         <br />
  
-          
-        <Button
-        onClick={handleSubmit}
-        >
-      Login
-      </Button>
-     
-     
+
+             <button type="submit"  onClick={handleSubmit}>Login</button>
+             <br />
+             
+             <p>Don't have an account? <Link to="/SignUp"> Sign Up</Link></p> 
       </form>
+      
+
+      </form>
+    </div>
     </div>
   );
 };

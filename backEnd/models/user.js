@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Reservation = require('./Reservation'); // Update the path accordingly
+const Reservation = require('./Reservation'); 
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -37,6 +37,7 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
      default: false 
     },
+  wallet: { type: String },
   codeAdmin: { type: String },
   reservations: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Reservation' }],
   reservationHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Reservation' }],

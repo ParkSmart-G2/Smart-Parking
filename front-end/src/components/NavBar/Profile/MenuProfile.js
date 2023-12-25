@@ -15,5 +15,11 @@ export const MenuProfile   = [
       path: '/My-Settings',
       cName: 'dropdown-link'
     },
+    {
+      title: 'Logout',
+      path: '/',
+      cName: 'dropdown-link'
+    },
+   
    
   ];
