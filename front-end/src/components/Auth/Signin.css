@@ -1,68 +1,92 @@
-.signin {
+.adjuste {
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center;
-  height: 70vh; /* Adjusted to 100vh for better compatibility */
-  }
-  .signinContainerandSignIn {
- 
-    color: #2998FF;
-    /* Removed margin-top: 50px; to center vertically */
-  }
-  .signInContainer {
-    width: 400px;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background-color: #212121;
-    color: #2998FF;
-    margin-top: 20px; /* Adjusted margin-top */
-  }
-  h1 {
-    color: #2998FF;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size: 24px;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: rgb(190, 190, 190);
-  }
-  p{
-    font-weight: bold;
-  }
-  
-  input {
-    padding: 12px;
-    margin-bottom: 16px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  button {
-    padding: 12px;
-    background: linear-gradient(214.02deg, #2998FF 6.04%, #671AE4 92.95%);
-    color: #FFFFFF;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    transition: background-color 0.3s ease;
-  }
-  
+  height: 100vh;
 
-  button:hover {
-    background: linear-gradient(214.02deg, #0056b3 6.04%, #671AE4 92.95%);
-  }
+}
+
+.signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 70px; /* Adjust as needed */
+}
+
+.imagep{
+  color: #212121;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+.signinContainerandSignIn {
+  color: #2998FF;
+  margin-left: 20px;
+}
+
+.signInContainer {
+  width: 400px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #212121;
+  color: #2998FF;
+  margin-top: 20px;
   
-  .error-message {
-    color: #ff0000;
-    margin-top: 10px;
-  }
+}
+
+.loginimage {
+  max-width:700px; /* Adjust as needed */
+  height: auto;
+  margin-left: 30px;
+ 
+}
+
+h1 {
+  color: #2998FF;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: rgb(190, 190, 190);
+}
+
+p {
+  font-weight: bold;
+}
+
+input {
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  padding: 12px;
+  background: linear-gradient(214.02deg, #2998FF 6.04%, #671AE4 92.95%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(214.02deg, #0056b3 6.04%, #671AE4 92.95%);
+}
+
+.error-message {
+  color: #ff0000;
+  margin-top: 10px;
+}

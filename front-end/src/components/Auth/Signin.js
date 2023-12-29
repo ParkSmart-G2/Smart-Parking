@@ -2,98 +2,13 @@
 
 
 
-// import React, { useState } from "react";
-// import axios from "axios";
-// import Button from '@mui/material/Button';
-// import { Link } from 'react-router-dom';
-// import "./Signin.css"; 
-
-// import Home from ".././Home"
-
-// const SignIn = ({ setUserData }) => {
-//   const [formData, setFormData] = useState({
-//     email: "",
-//     password: "",
-//   });
-
-//   const handleInputChange = (e) => {
-//     setFormData({
-//       ...formData,
-//       [e.target.name]: e.target.value,
-//     });
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     if (!formData.email || !formData.password) {
-//       console.error("Please fill in all required fields");
-//       return;
-//     }
-
-//     try {
-//       const response = await axios.post("http://localhost:4444/api/auth/login", formData);
-//       if(response.data.message === 'Login successful'){
-//         console.log('Login successful', response.data.user);
-//         setUserData(response.data.user)
-
-      
-
-//     }
-     
-//     } catch (error) {
-//       console.error(error.response.data);
-//     }
-//   };
-
-//   return (
-//     <div className="signin">
-//       <h2>Sign In</h2>
-//       <form onSubmit={handleSubmit} className="signinContainer">
-//         <label>Email:</label>
-//         <input
-//           type="email"
-//           name="email"
-//           onChange={handleInputChange}
-//           required
-//         />
-//         <br />
-
-//         <label>Password:</label>
-//         <input
-//           type="password"
-//           name="password"
-//           onChange={handleInputChange}
-//           required
-//         />
-//         <br />
-//         <Button
-//         onClick={handleSubmit}
-//         component={Link} // Use Link as the component for the button
-//         to="/" // Specify the path to the SignUp page
-//         variant="contained"
-//         style={{ backgroundColor: '#5A4FCF', color: 'white' }}
-//         fullWidth
-//       >
-//         Login
-//       </Button>
-  
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default SignIn;
-
-
-
-
 import React, { useState } from "react";
 import axios from "axios";
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import "./Signin.css"; 
 import { useNavigate } from "react-router-dom";
+import loginimage from "../images/loginimage.jpg"
 
 const SignIn = ({ setUserData }) => {
  
@@ -136,13 +51,18 @@ const SignIn = ({ setUserData }) => {
     }
   };
   return (
-    <div>
+    <div className="adjuste">
+      <div>
+      
     <div className="signin">
  
             <form onSubmit={handleSubmit} className="signinContainerandSignIn">
 
-      <h1>Login</h1>
+     
       <form onSubmit={handleSubmit} className="signInContainer">
+      <h1>Login</h1>
+      <br></br>
+      <br></br>
         <label>Email:</label>
         <input
           type="email"
@@ -164,6 +84,7 @@ const SignIn = ({ setUserData }) => {
 
              <button type="submit"  onClick={handleSubmit}>Login</button>
              <br />
+             <br></br>
              
              <p>Don't have an account? <Link to="/SignUp"> Sign Up</Link></p> 
       </form>
@@ -171,6 +92,18 @@ const SignIn = ({ setUserData }) => {
 
       </form>
     </div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    </div>
+    <div className="loginimage">
+   
+       <img src={loginimage} alt="loginimage"  className="loginimage"/>
+ 
+       </div>
     </div>
   );
 };

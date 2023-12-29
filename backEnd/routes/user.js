@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { register, login, logout } = require('../controllers/Auth');
+const {getAllReservationHistory,getAllReservationsPending} = require('../controllers/reservationController')
 const { verifyToken } = require('../middlewares/authJWT');
 
  
@@ -8,7 +9,11 @@ const { verifyToken } = require('../middlewares/authJWT');
     router.post('/login', login);
     router.post('/logout', verifyToken, logout);
 
-    
+
+    //Reservation
+
+router.get('/ReservationsPending/:userEmail',getAllReservationsPending)    
+router.get('/ReservationHistory/:userEmail',getAllReservationHistory)
 
 
 

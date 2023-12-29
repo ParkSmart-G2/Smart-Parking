@@ -92,6 +92,41 @@ const checkAvailability = async (plateNumber, serialNumber, secondNumber, reserv
   }
 };
 
+
+
+
+const getAllReservationsPending = async (req, res) => {
+  try {
+    const userEmail = req.params.userEmail; 
+    console.log(userEmail)
+    const pendingReservations = await Reservation.find({ 'user.email': userEmail, status: 'pending' });
+    
+    res.status(200).json({ reservations: pendingReservations });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
+
+
+const getAllReservationHistory = async (req, res) => {
+  try {
+    const userEmail = req.params.userEmail; 
+    const pendingReservations = await Reservation.find({ 'user.email': userEmail, status: 'done' });
+    res.status(200).json({ reservations: pendingReservations });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
+
+
+
+
 module.exports = {
   createReservation,
+  getAllReservationHistory,
+  getAllReservationsPending,
 };

@@ -38,6 +38,19 @@ const Prices = ({ userData }) => {
           </div>
         </div>
       </div>
+     
+      <div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      </div>
     </div>
   );
 }
