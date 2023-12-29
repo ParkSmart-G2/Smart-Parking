@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const ReservationForm = () => {
@@ -13,10 +13,33 @@ const ReservationForm = () => {
   const [numberOfHours, setNumberOfHours] = useState('');
   const [startingDate, setStartingDate] = useState('');
   const [numberOfDays, setNumberOfDays] = useState('');
+  const [price, setPrice] = useState(0);
 
+  useEffect(() => {
+    calculatePrice();
+  }, [numberOfHours, numberOfDays]);
+
+  const calculatePrice = () => {
+    if (bookingType === 'hours') {
+      const hours = parseInt(numberOfHours, 10);
+      if (hours < 5) {
+        setPrice(hours * 1);
+      } else if (hours >= 5 && hours <= 8) {
+        setPrice(hours * 1 * 0.9);
+      } else if (hours > 8 && hours <= 12) {
+        setPrice(hours * 1 * 0.8);
+      } else if (hours > 12 && hours <= 24) {
+        setPrice(hours * 1 * 0.7);
+      } else {
+        setPrice(hours * 1 * 0.5);
+      }
+    } else if (bookingType === 'days') {
+      const days = parseInt(numberOfDays, 10);
+      setPrice(days * 1);
+    }
+  };
   const handleReservation = async () => {
     try {
-      
       const response = await axios.post('/api/reservations', {
         reservationName,
         carType,
@@ -28,6 +51,7 @@ const ReservationForm = () => {
         numberOfHours,
         startingDate,
         numberOfDays,
+        price,
       });
 
       console.log(response.data); // Handle success
@@ -145,6 +169,8 @@ const ReservationForm = () => {
       )}
 
       <button onClick={handleReservation}>Reserve</button>
+
+      <p>Total Price: ${price}</p>
     </div>
   );
 };
