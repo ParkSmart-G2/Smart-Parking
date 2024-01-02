@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ReservationForm = () => {
+const ReservationForm = ({ userData }) => {
   const [reservationName, setReservationName] = useState('');
   const [carType, setCarType] = useState('');
   const [plateNumber, setPlateNumber] = useState('');
@@ -40,7 +40,7 @@ const ReservationForm = () => {
   };
   const handleReservation = async () => {
     try {
-      const response = await axios.post('/api/reservations/create', {
+      const response = await axios.post('http://localhost:4444/api/reservation/create', {
         reservationName,
         carType,
         plateNumber,
@@ -67,9 +67,11 @@ const ReservationForm = () => {
     setSerialNumber('');
     setSecondNumber('');
   };
-
+  if (userData.status === 'notReserving') {
   return (
+    
     <div>
+     
       <label>Reservation Name:</label>
       <input type="text" value={reservationName} onChange={(e) => setReservationName(e.target.value)} />
 
@@ -172,7 +174,28 @@ const ReservationForm = () => {
 
       <p>Total Price: ${price}</p>
     </div>
+    
   );
-};
+}; if (userData.status === 'reserved'){
+  return (
+    <div>
+      <p>You have reserved at: {userData.startingDate} until {userData.startingDate}  </p>
+      <button onClick={() => console.log('Update reservation')}>Update</button>
+      <button onClick={() => console.log('Cancel reservation')}>Cancel</button>
+      <p>NB: If you cancel, you will pay 50% of the price.</p>
+      
+    </div>
+  );
+}
+if (userData.status === 'inspot'){
+  return (
+    <div>
+      <p>You are currently inSpot. Do you want to stay more?</p>
+      <button onClick={() => console.log('Update reservation')}>Update</button>
+    </div>
+  );
+}
+
+} 
 
 export default ReservationForm;

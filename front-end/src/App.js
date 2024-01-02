@@ -41,7 +41,7 @@ function App() {
 <Route path="/services" element={<Services userData={userData}/>} />
 <Route path="/contact" element={<Contact userData={userData}/>} />
 
-<Route path="/Your-Reservation" element={<AfterReservation userData={userData}/>} />
+
 <Route path="/Reservation" element={<Reservation userData={userData}/>} />
 <Route path="/Payment" element={<Payment userData={userData}/>} />
 <Route path="/Notification" element={<Notification userData={userData}/>} />
