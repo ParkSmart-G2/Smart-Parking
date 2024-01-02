@@ -17,8 +17,6 @@ const spotSchema = new mongoose.Schema({
   );
   
 
-// 00 to 24h 
-// reserved 
 
 
 

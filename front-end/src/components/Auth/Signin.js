@@ -62,7 +62,7 @@ const SignIn = ({ setUserData }) => {
       <form onSubmit={handleSubmit} className="signInContainer">
       <h1>Login</h1>
       <br></br>
-      <br></br>
+ 
         <label>Email:</label>
         <input
           type="email"

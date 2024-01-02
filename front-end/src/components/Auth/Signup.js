@@ -77,7 +77,7 @@ const SignUp = () => {
       let signUpPath = "";
 
       if (isAdmin) {
-        signUpPath = "http://localhost:4444/createAdmin";
+        signUpPath = "http://localhost:4444/api/auth/register";
       } else {
         signUpPath = "http://localhost:4444/api/auth/register";
       }

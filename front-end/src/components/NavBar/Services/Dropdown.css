@@ -2,7 +2,7 @@
   background: rgb(255, 7, 7);
   width: 200px;
   position: absolute;
-  top: 80px;
+  top: 40px;
   list-style: none;
   text-align: start;
   z-index: 1000; /* Adjust the value as needed, it should be higher than other elements */

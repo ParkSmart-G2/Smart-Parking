@@ -14,7 +14,7 @@ const Home = ({ userData }) => {
             link2: '/Prices',
             styles: {
               container: {
-                background: '#212121',  
+                background: '#262629',  
                 borderRadius: '40px',
                 color: 'white',
                 width: '100%',
@@ -74,7 +74,7 @@ const Home = ({ userData }) => {
             link1: '/Services',
             styles: {
               container: {
-                background: '#212121', 
+                background: '#262629', 
                 borderRadius: '15px',
                 color: 'white',
                 width: '58%', 
@@ -124,7 +124,7 @@ const Home = ({ userData }) => {
 
             styles: {
               container: {
-                background: '#212121', 
+                background: '#262629', 
                 borderRadius: '15px',
                 color: 'white',
                 width: '40%', 
@@ -197,7 +197,7 @@ const Home = ({ userData }) => {
 
             styles: {
               container: {
-                background: '#212121', 
+                background: '#262629', 
                 borderRadius: '15px',
                 color: 'white',
                 width: '50%', 
@@ -248,7 +248,7 @@ const Home = ({ userData }) => {
 
             styles: {
               container: {
-                background: '#212121',
+                background: '#262629',
                 borderRadius: '15px',
                 color: 'white',
                 width: '48%', 

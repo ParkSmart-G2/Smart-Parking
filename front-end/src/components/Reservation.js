@@ -40,7 +40,7 @@ const ReservationForm = () => {
   };
   const handleReservation = async () => {
     try {
-      const response = await axios.post('/api/reservations', {
+      const response = await axios.post('/api/reservations/create', {
         reservationName,
         carType,
         plateNumber,

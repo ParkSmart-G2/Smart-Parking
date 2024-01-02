@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { register, login, logout } = require('../controllers/Auth');
-const {getAllReservationHistory,getAllReservationsPending} = require('../controllers/reservationController')
+const {getAllReservationHistory,getAllReservationsCurrent,getUserInParkingSpot} = require('../controllers/reservationController')
 const { verifyToken } = require('../middlewares/authJWT');
 
  
@@ -12,9 +12,8 @@ const { verifyToken } = require('../middlewares/authJWT');
 
     //Reservation
 
-router.get('/ReservationsPending/:userEmail',getAllReservationsPending)    
+router.get('/ReservationsPending/:userEmail',getAllReservationsCurrent)    
 router.get('/ReservationHistory/:userEmail',getAllReservationHistory)
-
-
+router.get('/getUserInParkingSpot/:userEmail',getUserInParkingSpot)
 
 module.exports = router

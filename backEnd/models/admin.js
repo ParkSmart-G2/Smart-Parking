@@ -23,6 +23,11 @@ const adminSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
+      totalSpots: {
+        type: Number,
+        required: true,
+        default: 10,
+    },
     })
 
     module.exports = mongoose.model('Admin', adminSchema)

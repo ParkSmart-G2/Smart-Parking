@@ -2,11 +2,15 @@
 const express = require('express');
 const router = express.Router();
 const Reservation = require('../models/reservation');
+const {createReservation} = require('../controllers/reservationController')
 
-// POST create a reservation
+
 router.post('/create', async (req, res) => {
+  console.log('Request Body:', req.body); // Log the entire request body
+ 
   try {
-    const { name, email, reservationType, duration } = req.body;
+    const { name, email, reservationType, duration, price } = req.body;
+
 
     // Assume each time slot is 1 hour; adjust as needed
     const currentTime = new Date();
@@ -18,11 +22,18 @@ router.post('/create', async (req, res) => {
       startTime: { $gte: currentTime, $lt: endTimeLimit },
     });
 
+    // Log existing reservations
+    console.log('Existing Reservations:', existingReservations);
+
     const parkingPlace = findAvailableParkingPlace(existingReservations);
 
     if (parkingPlace === null) {
+      console.log('No available parking places for the specified duration.');
       return res.status(400).json({ message: 'No available parking places for the specified duration.' });
     }
+
+    // Log parking place
+    console.log('Selected Parking Place:', parkingPlace);
 
     const reservationStartTime = new Date();
     const reservationDuration = parseInt(duration); // Ensure duration is a valid integer
@@ -37,20 +48,26 @@ router.post('/create', async (req, res) => {
       duration: reservationDuration,
       startTime: reservationStartTime,
       endTime: reservationEndTime,
+      reservationDetails: {
+        price: price,
+        createdAt: new Date(),
+      },
     });
 
     await newReservation.save();
 
+    console.log('Reservation created successfully:', newReservation);
+
     res.status(200).json({ message: 'Reservation created successfully.', reservation: newReservation });
   } catch (error) {
-    console.error(error);
+    console.error('Error creating reservation:', error);
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });
 
 // Helper function to find an available parking place
 function findAvailableParkingPlace(existingReservations) {
-  const totalParkingPlaces = 2; // Adjust based on the total number of parking places available
+  const totalParkingPlaces = 50; // Adjust based on the total number of parking places available
 
   for (let parkingPlace = 1; parkingPlace <= totalParkingPlaces; parkingPlace++) {
     const isAvailable = existingReservations.every(reservation =>

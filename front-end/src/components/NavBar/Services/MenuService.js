@@ -1,14 +1,24 @@
 export const MenuService  = [
     {
-      title: 'Reservation Systeme',
+      title: 'General',
       path: '/Services',
       cName: 'dropdown-link'
     },
     {
-      title: 'Our technologies',
+      title: 'How to Reserve',
       path: '/Services',
       cName: 'dropdown-link'
     },
+    {
+      title: 'Payment',
+      path: '/Services',
+      cName: 'dropdown-link'
+    },
+    {
+      title: 'Processe',
+      path: '/Services',
+      cName: 'dropdown-link'
+    }
     
    
   ];

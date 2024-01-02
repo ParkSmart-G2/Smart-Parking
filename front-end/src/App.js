@@ -20,6 +20,8 @@ import Wallet from "./components/Wallet";
 import Prices from "./components/Prices"
 import UserIcon from "./components/UserIcon"
 import Footer from "./components/Footer/Footer.js";
+import AdminDash from "./components/AdminDashboard.js"
+import AdminDashboard from "./components/AdminDashboard.js";
 function App() {
   const [userData,setUserData] = useState({});
 
@@ -38,7 +40,7 @@ function App() {
 <Route path="/About-Us" element={<AboutUs userData={userData}/>} />
 <Route path="/services" element={<Services userData={userData}/>} />
 <Route path="/contact" element={<Contact userData={userData}/>} />
-<Route path="/Profile" element={<Profile userData={userData}/>} />
+
 <Route path="/Your-Reservation" element={<AfterReservation userData={userData}/>} />
 <Route path="/Reservation" element={<Reservation userData={userData}/>} />
 <Route path="/Payment" element={<Payment userData={userData}/>} />
@@ -48,7 +50,10 @@ function App() {
 <Route path="/Wallet" element={<Wallet userData={userData}/>} />
 <Route path="/Prices" element={<Prices userData={userData}/>} />
 <Route path="/UserIcon" element={<UserIcon userData={userData}/>} />
-
+{userData.isAdmin && 
+  <Route path="/Profile" element={<AdminDashboard userData={userData}/>} />
+}
+{!userData.isAdmin && <Route path="/Profile" element={<Profile userData={userData}/>} />}
 </Routes>
 <Footer userData={userData} />
 </Router>

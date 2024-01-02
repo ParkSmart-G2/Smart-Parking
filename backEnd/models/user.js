@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
     trim: true,
     lowercase: true,
   },
+  userImage:String,
   firstName: {
     type: String,
     required: true,
@@ -37,10 +38,22 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
      default: false 
     },
-  wallet: { type: String },
+    status: { type: String, enum: ['notReserving', 'inspot','reserved'], default: 'notReserving' },
   codeAdmin: { type: String },
-  reservations: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Reservation' }],
-  reservationHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Reservation' }],
+  reservationID: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Reservation',
+    default: null,
+  },
+  totalSpots: {
+    type: Number,
+    required: function () {
+        return this.isAdmin; // Required only if the user is an admin
+    },
+    default: function () {
+        return this.isAdmin ? 10 : undefined; // Default to undefined for non-admins
+    },
+},
 });
 
 module.exports = mongoose.model('User', userSchema);

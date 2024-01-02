@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth",authroute);
+app.use("/api",adminRoute);
 app.use("/api/reservation",reservationRoute)
 app.listen(port, () => {
   console.log(`Server started on port ${port}!`);
