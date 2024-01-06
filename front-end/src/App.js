@@ -25,7 +25,6 @@ import AdminDashboard from "./components/AdminDashboard.js";
 import Map  from "./components/Map.js";
 
 function App() {
-
   const [userData,setUserData] = useState({});
   return (
     <div className="App">
@@ -61,8 +60,6 @@ function App() {
 </Routes>
 <Footer userData={userData} />
 </Router>
-
-
 
     </div>
   )

@@ -3,14 +3,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 70vh;
   }
+
   
   .form {
     width: 400px;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(15, 14, 14, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     background-color: #212121;
     color: #2998FF;
     margin-top: 20px;
@@ -25,7 +26,7 @@
     border: 1px solid #cccccc;
     border-radius: 5px;
     font-size: 16px;
-    background-color: #4c4ac2; /* Ajoutez une couleur de fond */
+    background-color: #fff; /* Ajoutez une couleur de fond */
     color: #212121; /* Couleur du texte */
   }
   
@@ -44,13 +45,19 @@
     background: linear-gradient(214.02deg, #0056b3 6.04%, #671AE4 92.95%);
   }
   
-  .form .alert {
-    background-color: #2998FF;
-    color: #FFFFFF;
+ .alert {
+    background-color: #29a9ff;
+    color: #ffffff;
     padding: 10px;
     margin-top: 10px;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
   }
-  
+  .feedimage{
+    max-width:400px; /* Adjust as needed */
+    height: auto;
+    margin-left: 30px;
+    margin: 20px;
+   
+  }
