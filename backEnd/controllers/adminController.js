@@ -3,6 +3,8 @@ const User = require('../models/user')
 
 const Reservation = require('../models/Reservation');
 
+const Feedback = require('../models/feedback');
+
 
 
 const getAllUsers = async (req, res) => {
@@ -134,8 +136,17 @@ const getUserPayments = async (req, res) => {
 
 
 
-
-
+const submitFeedback = async (req, res) => {
+    try {
+        const { name, email, message } = req.body;
+        const newFeedback = new Feedback({ name, email, message });
+        await newFeedback.save();
+        res.status(201).json({ message: 'Feedback submitted successfully!' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+};
 
 
 
@@ -148,6 +159,7 @@ module.exports = {
     availableSpots,
     modifySpotsNumber,
     getPayments,
+    submitFeedback,
     getUserPayments,
 
   };

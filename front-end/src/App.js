@@ -22,9 +22,11 @@ import UserIcon from "./components/UserIcon"
 import Footer from "./components/Footer/Footer.js";
 import AdminDash from "./components/AdminDashboard.js"
 import AdminDashboard from "./components/AdminDashboard.js";
-function App() {
-  const [userData,setUserData] = useState({});
+import Map  from "./components/Map.js";
 
+function App() {
+
+  const [userData,setUserData] = useState({});
   return (
     <div className="App">
     
@@ -35,7 +37,7 @@ function App() {
 <Routes>
   
 <Route path="/Home" element={<Home userData={userData}/>} />
-<Route path="/" element={<SignIn setUserData={setUserData}   />} />
+<Route path="/" element={<SignIn setUserData={setUserData}/>} />
 <Route path="/SignUp" element={<SignUp/>} />
 <Route path="/About-Us" element={<AboutUs userData={userData}/>} />
 <Route path="/services" element={<Services userData={userData}/>} />
@@ -49,6 +51,8 @@ function App() {
 <Route path="/My-Settings" element={<ProfileSettings userData={userData}/>} />
 <Route path="/Wallet" element={<Wallet userData={userData}/>} />
 <Route path="/Prices" element={<Prices userData={userData}/>} />
+
+<Route path="/Map" element={<Map userData={userData}/>} />
 <Route path="/UserIcon" element={<UserIcon userData={userData}/>} />
 {userData.isAdmin && 
   <Route path="/Profile" element={<AdminDashboard userData={userData}/>} />

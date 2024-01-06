@@ -1,0 +1,56 @@
+/* Ajout des styles pour le formulaire de contact */
+.formContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .form {
+    width: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(15, 14, 14, 0.1);
+    background-color: #212121;
+    color: #2998FF;
+    margin-top: 20px;
+    align-items: center;
+  }
+  
+  .form input,
+  .form textarea,
+  .form button {
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #4c4ac2; /* Ajoutez une couleur de fond */
+    color: #212121; /* Couleur du texte */
+  }
+  
+  .form button {
+    padding: 12px;
+    background: linear-gradient(214.02deg, #2998FF 6.04%, #671AE4 92.95%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form button:hover {
+    background: linear-gradient(214.02deg, #0056b3 6.04%, #671AE4 92.95%);
+  }
+  
+  .form .alert {
+    background-color: #2998FF;
+    color: #FFFFFF;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
