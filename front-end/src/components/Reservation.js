@@ -201,6 +201,8 @@
 // export default ReservationForm;
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Reservation.css'
+import Reservation from "../components/images/Reservation.png"
 
 const ReservationForm = ({ userData }) => {
   const [reservationName, setReservationName] = useState(userData?.name || '');
@@ -276,7 +278,7 @@ const ReservationForm = ({ userData }) => {
   };
 
   return (
-    <div>
+    <div className="reservationFormContainer">
       <label>Reservation Name:</label>
       <input type="text" value={reservationName} onChange={(e) => setReservationName(e.target.value)} />
 
@@ -332,6 +334,7 @@ const ReservationForm = ({ userData }) => {
             onChange={(e) => setSecondNumber(e.target.value)}
           />
         </div>
+        
       )}
 
       
@@ -373,13 +376,22 @@ const ReservationForm = ({ userData }) => {
             placeholder="Enter Number of Days"
             onChange={(e) => setNumberOfDays(e.target.value)}
           />
+          
         </div>
+        
       )}
 
       <button onClick={handleReservation}>Reserve</button>
 
       <p>Total Price: ${price}</p>
+  
+      <div className="reservimage">
+              <img src={Reservation} alt="reservimage" className="reservimage"/>
+               </div>
+      
     </div>
+    
+    
   );
 };
 
