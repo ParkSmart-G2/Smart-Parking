@@ -278,6 +278,7 @@ const ReservationForm = ({ userData }) => {
   };
 
   return (
+    <div className="adjuste">
     <div className="reservationFormContainer">
       <label>Reservation Name:</label>
       <input type="text" value={reservationName} onChange={(e) => setReservationName(e.target.value)} />
@@ -334,6 +335,7 @@ const ReservationForm = ({ userData }) => {
             onChange={(e) => setSecondNumber(e.target.value)}
           />
         </div>
+
         
       )}
 
@@ -382,14 +384,17 @@ const ReservationForm = ({ userData }) => {
       )}
 
       <button onClick={handleReservation}>Reserve</button>
+      
 
       <p>Total Price: ${price}</p>
-  
+      </div>
+
+      
       <div className="reservimage">
               <img src={Reservation} alt="reservimage" className="reservimage"/>
                </div>
       
-    </div>
+               </div>
     
     
   );
