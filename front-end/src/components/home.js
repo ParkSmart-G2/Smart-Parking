@@ -32,6 +32,7 @@ const Home = ({ userData }) => {
                 fontSize: '3.5rem',
                 whiteSpace: 'pre-line', // Allow for line breaks
                 margin: '20px auto',
+                
 
               },
               contentStyle: {
@@ -43,6 +44,7 @@ const Home = ({ userData }) => {
               img: {
                 width: '450px',
                 height: 'auto',
+                marginLeft:'40px',
               },
               button1: {
                 display: 'inline-block',

@@ -86,7 +86,7 @@ const Profile = ({ userData }) => {
     }
   };
   const handleProfileImage = () => {
-    window.location.reload();
+   
   };
   return (
 
@@ -107,7 +107,7 @@ const Profile = ({ userData }) => {
         >
         <div className='homeUserProfile' onClick={handleProfileImage} style={{ marginBottom: '20px' }}>
   <div style={{ display: 'flex', alignItems: 'center',marginLeft:'40%', }}>
-    <Avatar alt="user" src={userData.userImage} sx={{ width: 80, height: 80, cursor: 'pointer', marginRight: '10px' }} />
+    <Avatar alt="user" src={userData.image} sx={{ width: 80, height: 80, cursor: 'pointer', marginRight: '10px' }} />
    
     
   </div>

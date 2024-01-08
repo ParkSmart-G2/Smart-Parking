@@ -53,7 +53,7 @@ const UsersNotReserving = async (req, res) => {
     }
 };
 
-const availableSpots = async  (req, res) => {
+const allSpots = async  (req, res) => {
     try {
       const userEmail = req.params.userEmail; 
       
@@ -145,7 +145,7 @@ module.exports = {
     UsersInSpot,
     UsersReserved ,
     UsersNotReserving,
-    availableSpots,
+    allSpots,
     modifySpotsNumber,
     getPayments,
     getUserPayments,

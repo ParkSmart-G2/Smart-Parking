@@ -22,6 +22,15 @@ import UserIcon from "./components/UserIcon"
 import Footer from "./components/Footer/Footer.js";
 import AdminDash from "./components/AdminDashboard.js"
 import AdminDashboard from "./components/AdminDashboard.js";
+import Dash from "./components/FulladminDashboard/Dash.jsx"
+// import AllUsers from "./components/FulladminDashboard/components/AllUsers/AllUsers.jsx"
+import AllUsers from "./components/FulladminDashboard/SideBarComponenets/AllUsers"
+import  Messages from "./components/FulladminDashboard/SideBarComponenets/Messages"
+import ParkingSpots  from "./components/FulladminDashboard/SideBarComponenets/ParkingSpots"
+import Revenu from "./components/FulladminDashboard/SideBarComponenets/Revenu"
+import  Review from "./components/FulladminDashboard/SideBarComponenets/Review"
+
+
 function App() {
   const [userData,setUserData] = useState({});
 
@@ -42,6 +51,17 @@ function App() {
 <Route path="/contact" element={<Contact userData={userData}/>} />
 
 
+
+{/* admindashboard links */}
+<Route path="/AllUsers" element={<AllUsers userData={userData}/>} />
+<Route path="/Messages" element={<Messages userData={userData}/>} />
+<Route path="/ParkingSpots" element={<ParkingSpots  userData={userData}/>} />
+<Route path="/Revenu" element={<Revenu  userData={userData}/>} />
+<Route path="/Review" element={<Review userData={userData}/>} />
+
+{/* admindashboard links */}
+
+
 <Route path="/Reservation" element={<Reservation userData={userData}/>} />
 <Route path="/Payment" element={<Payment userData={userData}/>} />
 <Route path="/Notification" element={<Notification userData={userData}/>} />
@@ -50,14 +70,15 @@ function App() {
 <Route path="/Wallet" element={<Wallet userData={userData}/>} />
 <Route path="/Prices" element={<Prices userData={userData}/>} />
 <Route path="/UserIcon" element={<UserIcon userData={userData}/>} />
+{/* <Route path="/Dashboard" element={<Dash userData={userData}/>} /> */}
 {userData.isAdmin && 
-  <Route path="/Profile" element={<AdminDashboard userData={userData}/>} />
+  // <Route path="/Profile" element={<AdminDashboard userData={userData}/>} />
+  <Route path="/Profile" element={<Dash  userData={userData}/>} />
 }
 {!userData.isAdmin && <Route path="/Profile" element={<Profile userData={userData}/>} />}
 </Routes>
 <Footer userData={userData} />
 </Router>
-
 
 
     </div>

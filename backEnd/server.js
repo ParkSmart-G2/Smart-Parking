@@ -7,6 +7,9 @@ const reservationRoute = require("./routes/reservation")
 const adminRoute = require("./routes/admin")
 const spotRoute = require("./routes/spot")
 const dotenv =require("dotenv");
+
+//Cloudinary 
+
 // mongodb://localhost:27017/SmartPark
 // mongodb://0.0.0.0/SmartPark
 // Establishing MongoDB connection without deprecated options

@@ -114,7 +114,7 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import loginimage from "../images/loginimage.jpg";
-
+import "./Signin.css"; 
 const SignIn = ({ setUserData }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({

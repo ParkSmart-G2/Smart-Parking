@@ -2,22 +2,69 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Set to min-height for flexibility */
+  /* min-height: 100vh; */
+  /* margin-top: 10px; */
+  margin-bottom: 10px;
+  align-content: center
+  
 }
+.SignUpButton{
+  margin-bottom: 50px;
+}
+.adjusteSignup{
+  display: flex;
+  justify-content: center; 
+  align-items: center;
 
+}
+.adjusteSignup1{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #212121;
+ width: 60%;
+ 
+ height: auto;
+ margin-left: 300px;
+margin-bottom: 20px;
+border-radius: 30px;
+}
+.pS{
+  color: #ccc;
+}
 .signupContainerandSignUp {
   color: #2998FF;
+  align-items: center
 }
 
 .signupContainer {
-  width: 80%;
-  max-width: 400px;
+  width: 400px;
+  max-width: 1000px;
   padding: 20px;
   border-radius: 10px;
   
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  background-color: #212121;
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #212121; */
   color: #2998FF;
+  
+}
+/* .ContainersLeft{
+  flex:1;
+  margin-left: 20px;
+} */
+
+.container1 {
+ flex: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+    border-radius: 20px;
+    width: 600px;
+    margin-bottom: 20px;
+
+}
+.titleS{
+  margin-top: 20px;
+  padding-top: 10px;
 }
 
 h1 {
@@ -25,12 +72,23 @@ h1 {
   text-align: center;
   margin-bottom: 10px;
   font-size: 24px;
+
+}
+
+.inputSignUp{
+ /* or any other value you prefer */
+
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+ 
 }
 
 label {
   margin-bottom: 8px;
   font-weight: bold;
   color: rgb(190, 190, 190);
+ 
 }
 
 p {
@@ -53,7 +111,7 @@ input,
   margin-bottom: 16px;
 }
 
-button {
+/* button {
   padding: 12px;
   background: linear-gradient(214.02deg, #2998FF 6.04%, #671AE4 92.95%);
   color: #FFFFFF;
@@ -67,7 +125,10 @@ button {
 
 button:hover {
   background: linear-gradient(214.02deg, #0056b3 6.04%, #671AE4 92.95%);
-}
+} */
+
+
+
 
 .error-message {
   color: #ff0000;
