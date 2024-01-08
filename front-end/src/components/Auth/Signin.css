@@ -3,6 +3,7 @@
   justify-content: center; 
   align-items: center;
   height: 90vh;
+  margin-bottom: 120px;
 
 }
 
@@ -33,7 +34,7 @@
 }
 
 .loginimage {
-  max-width:600px; 
+  max-width:500px; 
   height: auto;
   margin-left: 30px;
   margin: 20px;

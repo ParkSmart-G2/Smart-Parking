@@ -22,6 +22,8 @@ import UserIcon from "./components/UserIcon"
 import Footer from "./components/Footer/Footer.js";
 import AdminDash from "./components/AdminDashboard.js"
 import AdminDashboard from "./components/AdminDashboard.js";
+import Map  from "./components/Map.js";
+
 import Dash from "./components/FulladminDashboard/Dash.jsx"
 // import AllUsers from "./components/FulladminDashboard/components/AllUsers/AllUsers.jsx"
 import AllUsers from "./components/FulladminDashboard/SideBarComponenets/AllUsers"
@@ -33,7 +35,6 @@ import  Review from "./components/FulladminDashboard/SideBarComponenets/Review"
 
 function App() {
   const [userData,setUserData] = useState({});
-
   return (
     <div className="App">
     
@@ -44,7 +45,7 @@ function App() {
 <Routes>
   
 <Route path="/Home" element={<Home userData={userData}/>} />
-<Route path="/" element={<SignIn setUserData={setUserData}   />} />
+<Route path="/" element={<SignIn setUserData={setUserData}/>} />
 <Route path="/SignUp" element={<SignUp/>} />
 <Route path="/About-Us" element={<AboutUs userData={userData}/>} />
 <Route path="/services" element={<Services userData={userData}/>} />
@@ -69,6 +70,8 @@ function App() {
 <Route path="/My-Settings" element={<ProfileSettings userData={userData}/>} />
 <Route path="/Wallet" element={<Wallet userData={userData}/>} />
 <Route path="/Prices" element={<Prices userData={userData}/>} />
+
+<Route path="/Map" element={<Map userData={userData}/>} />
 <Route path="/UserIcon" element={<UserIcon userData={userData}/>} />
 {/* <Route path="/Dashboard" element={<Dash userData={userData}/>} /> */}
 {userData.isAdmin && 
@@ -79,6 +82,7 @@ function App() {
 </Routes>
 <Footer userData={userData} />
 </Router>
+
 
 
     </div>

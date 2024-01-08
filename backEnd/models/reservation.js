@@ -1,4 +1,6 @@
 
+
+
 // const mongoose = require('mongoose');
 
 // let Reservation;
@@ -16,14 +18,27 @@
 //     duration: { type: Number, required: true },
 //     startTime: { type: Date, required: true },
 //     endTime: { type: Date, required: true },
-//     status: { type: String, enum: ['current', 'userIn','userExit'], default: 'pending' },
-   
+//     state: { type: String, enum: ['current', 'userIn','userExit'], default: 'current' },
+//     reservationDetails: {
+//       price: {
+//         type: Number,
+//         required: true,
+//       },
+//       createdAt: {
+//         type: Date,
+//         default: Date.now,
+//       },
+//     }
 //   });
 
 //   Reservation = mongoose.model('Reservation', reservationSchema);
 // }
 
 // module.exports = Reservation;
+
+
+
+
 
 
 const mongoose = require('mongoose');
@@ -34,29 +49,52 @@ try {
   Reservation = mongoose.model('Reservation');
 } catch (error) {
   const reservationSchema = new mongoose.Schema({
-    parkingPlace: { type: Number, required: true },
-    user: {
-      name: { type: String, required: true },
-      email: { type: String, required: true },
+    reservationName: {
+      type: String,
+      required: true,
     },
-    reservationType: { type: String, enum: ['hours', 'days'], required: true },
-    duration: { type: Number, required: true },
-    startTime: { type: Date, required: true },
-    endTime: { type: Date, required: true },
-    state: { type: String, enum: ['current', 'userIn','userExit'], default: 'current' },
-    reservationDetails: {
-      price: {
-        type: Number,
-        required: true,
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-      },
-    }
+    carType: {
+      type: String,
+      required: true,
+    },
+    plateNumber: {
+      type: String,
+      required: true,
+    },
+    serialNumber: {
+      type: String,
+    },
+    secondNumber: {
+      type: String,
+    },
+    bookingType: {
+      type: String,
+      enum: ['hours', 'days'],
+      required: true,
+    },
+    reservationTime: {
+      type: Date,
+    },
+    numberOfHours: {
+      type: Number,
+    },
+    startingDate: {
+      type: Date,
+    },
+    numberOfDays: {
+      type: Number,
+    },
+    price: {
+      type: Number,
+      default: 0,
+    },
+    
   });
 
   Reservation = mongoose.model('Reservation', reservationSchema);
 }
 
 module.exports = Reservation;
+
+
+
