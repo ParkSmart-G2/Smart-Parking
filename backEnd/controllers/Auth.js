@@ -2,6 +2,11 @@ const User = require('../models/user')
 const bcrypt = require('bcrypt');
 const { generateToken } = require('../middlewares/authJWT');
 
+
+const isPhoneNumberValid = (phoneNumber) => {
+
+  return phoneNumber.length === 8 ;
+};
 function isEmailValid(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -23,7 +28,7 @@ function isPlateNumberValid(plateNumber) {
 
 // Register
 exports.register = async (req, res) => {
-  const { firstName, lastName, plateNumber, password, email,phoneNumber, isAdmin, codeAdmin } = req.body;
+  const { firstName, lastName, plateNumber, password, email,phoneNumber, isAdmin, codeAdmin,image } = req.body;
 
   // Validate email format
   if (!isEmailValid(email)) {
@@ -38,7 +43,10 @@ exports.register = async (req, res) => {
     return res.status(400).send({ message: 'Invalid plate number format.' });
   }
   
-
+  if (!isPhoneNumberValid(phoneNumber)) {
+    return res.status(400).send({ message: 'Invalid phone number format.' });
+  }
+  
   try {
     // Check if it's an admin signup and validate admin code
     if (isAdmin) {
@@ -63,6 +71,7 @@ exports.register = async (req, res) => {
       email,
       phoneNumber,
       isAdmin,
+      image,
     });
 
     await newUser.save();

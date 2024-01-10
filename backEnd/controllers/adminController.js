@@ -148,7 +148,28 @@ const submitFeedback = async (req, res) => {
     }
 };
 
+const getFeedback = async (req, res) => {
+    try {
+        const allFeedback = await Feedback.find();
+        console.log(allFeedback,'allFeedback',); // Check if data is retrieved
+        res.status(200).json(allFeedback);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+};
 
+const deleteFeedback = async (req, res) => {
+    const { feedbackId } = req.body;
+  
+    if (!feedbackId) {
+      return res.status(400).json({ error: 'Invalid feedbackId' });
+    }
+  
+    feedbackData = feedbackData.filter((feedback) => feedback._id !== feedbackId);
+  
+    res.json({ success: true });
+  };
 
 module.exports = {
     
@@ -161,6 +182,8 @@ module.exports = {
     getPayments,
     submitFeedback,
     getUserPayments,
+    getFeedback,
+    deleteFeedback,
 
   };
   

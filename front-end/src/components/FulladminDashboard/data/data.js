@@ -9,8 +9,8 @@ export const navigationLinks = [
  
     
    
-    { id: 6, title: 'Messages',link: '/Messages', image: iconsImgs.wealth },
-    { id: 7, title: 'Public Review',link: '/Reviews', image: iconsImgs.plane },
+    { id: 6, title: 'Messages',link: '/Messages', image: iconsImgs.plane  },
+    
 
     { id: 8, title: 'Settings',link: '/ProfileSettings', image: iconsImgs.gears }
 ];

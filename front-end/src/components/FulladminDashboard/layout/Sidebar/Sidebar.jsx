@@ -23,7 +23,7 @@ const Sidebar = ({userData}) => {
     <div className={ `sidebar ${sidebarClass}` }>
       <div className="user-info">
           <div className="info-img img-fit-cover">
-              <img src={ personsImgs.person_two } alt="profile image" />
+              <img src={userData.image} alt="profile image" />
           </div>
           <span className="info-name">{userData.firstName}  {userData.lastName} </span>
       </div>

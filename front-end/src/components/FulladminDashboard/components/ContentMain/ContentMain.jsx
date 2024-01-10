@@ -38,22 +38,29 @@ const ContentMain = () => {
         <TakenSpots  />  
         <EmptySpots  />
         </div>
-        <div className="content-grid-two">
-            <AllRevenu />
-            <div className="grid-two-item">
+        <div style={{ marginLeft: '80px',alignItems: 'center', justifyContent: 'center', width:'1500px',height:"600px"}}>
+        
+        <AllRevenu />
+        
+        </div>
+        
+        <div  className="content-grid-two">
+      
+            {/* <div className="grid-two-item">
               <div className="subgrid-two">
                 <Subscriptions />
                 <Savings />
               </div>
-            </div>
+            </div> */}
 
-            <div className="grid-two-item">
+            {/* <div className="grid-two-item">
               <div className="subgrid-two">
                 <Loans />
                 <Financial />
               </div>
-            </div>
+            </div> */}
         </div>
+       
     </div>
   )
 }

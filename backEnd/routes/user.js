@@ -9,6 +9,9 @@ const { verifyToken } = require('../middlewares/authJWT');
     router.post('/login', login);
     router.post('/logout', verifyToken, logout);
 
+    //Profile
+    
+
 
     //Reservation
 

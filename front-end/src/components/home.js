@@ -4,6 +4,7 @@ import React from 'react';
 import phone from './images/phone.png'; 
 import image2 from './images/image2.jpg'
 const Home = ({ userData }) => {
+  console.log(userData )
   const containers = [
     {
             title: 'Reserve Your Spot ,\n And Save Your Time' ,

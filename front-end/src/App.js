@@ -30,7 +30,6 @@ import AllUsers from "./components/FulladminDashboard/SideBarComponenets/AllUser
 import  Messages from "./components/FulladminDashboard/SideBarComponenets/Messages"
 import ParkingSpots  from "./components/FulladminDashboard/SideBarComponenets/ParkingSpots"
 import Revenu from "./components/FulladminDashboard/SideBarComponenets/Revenu"
-import  Review from "./components/FulladminDashboard/SideBarComponenets/Review"
 
 
 function App() {
@@ -58,7 +57,6 @@ function App() {
 <Route path="/Messages" element={<Messages userData={userData}/>} />
 <Route path="/ParkingSpots" element={<ParkingSpots  userData={userData}/>} />
 <Route path="/Revenu" element={<Revenu  userData={userData}/>} />
-<Route path="/Review" element={<Review userData={userData}/>} />
 
 {/* admindashboard links */}
 

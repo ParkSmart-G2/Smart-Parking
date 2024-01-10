@@ -3,6 +3,10 @@
     display: grid;
     row-gap: 20px;
   }
+  .main-content-holderRevenu {
+    display: grid;
+    row-gap: 20px;
+  }
   .content-grid-one {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

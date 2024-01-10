@@ -93,11 +93,12 @@ const AllUsers  = ({userData}) => {
   
         <Sidebar  userData={userData}/>
        
-        <div className="main-content-holder">
-        <h1>Users informations</h1>
+        <div   style={{marginLeft:'220px'}} >
+        <h1 style={{marginLeft:'230px',  fontSize: '55px',textTransform: 'uppercase',textAlign: 'center',fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px #666'}}>Users informations</h1>
+        
         <div className="content-grid-one">
       
-        <div className="grid-one-item grid-common grid-c2">
+        <div  style={{  marginBottom: "20px" }} className="grid-one-item grid-common grid-c2">
         <div className="grid-c-title">
             <h3 className="grid-c-title-text">All Users</h3>
             <button className="grid-c-title-icon">
@@ -128,7 +129,7 @@ const AllUsers  = ({userData}) => {
         
     </div>
 
-    <div className="grid-one-item grid-common grid-c2">
+    <div  style={{  marginBottom: "20px" }} className="grid-one-item grid-common grid-c2">
         <div className="grid-c-title">
             <h3 className="grid-c-title-text">Current Reservation</h3>
             <button className="grid-c-title-icon">
@@ -155,7 +156,7 @@ const AllUsers  = ({userData}) => {
             </div>
     </div>
 
-    <div className="grid-one-item grid-common grid-c2">
+    <div  style={{  marginBottom: "20px" }} className="grid-one-item grid-common grid-c2">
         <div className="grid-c-title">
             <h3 className="grid-c-title-text">Users in Parking Spot</h3>
             <button className="grid-c-title-icon">
@@ -183,7 +184,7 @@ const AllUsers  = ({userData}) => {
             </div>
         </div>
     </div>
-    <div className="grid-one-item grid-common grid-c2">
+    <div  style={{  marginBottom: "20px" }} className="grid-one-item grid-common grid-c2">
         <div className="grid-c-title">
             <h3 className="grid-c-title-text">Users That are not reserving</h3>
             <button className="grid-c-title-icon">

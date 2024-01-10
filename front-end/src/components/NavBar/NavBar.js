@@ -82,10 +82,16 @@ function Navbar({ userData }) {
                 onMouseEnter={handleMouseEnterReservation}
                 onMouseLeave={handleMouseLeaveReservation}
               >
-                <Link to='/Reservation' className='nav-links' onClick={closeMobileMenu}>
-                  Reservation
+                 {reservationDropdown && <DropdownReservation onMouseEnter={handleMouseEnterReservation} />}
+                 {userData.status === "notReserving"  ?
+                <Link to='/Reservation' style={{color:'#1888ff'}} className='nav-links' onClick={closeMobileMenu}>
+                  Reserve Now
                 </Link>
-                {reservationDropdown && <DropdownReservation onMouseEnter={handleMouseEnterReservation} />}
+                :
+                <Link to='/Reservation' style={{color:'#1888ff'}} className='nav-links' onClick={closeMobileMenu}>
+                  Your Reservation
+                </Link>
+               }
               </li>
               <li className='nav-item'>
                 <Link to='/Home' className='nav-links' onClick={closeMobileMenu}>

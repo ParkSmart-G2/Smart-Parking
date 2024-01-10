@@ -31,8 +31,12 @@ const Revenu = ({userData}) => {
   return (
     <div className='Dash'>
         <Sidebar  userData={userData}/>
-        <h1>Revenu</h1>
-        <div className="grid-two-item grid-common grid-c4">
+        <div   >
+        <h1 style={{marginLeft:'230px',  fontSize: '55px',textTransform: 'uppercase',textAlign: 'center',fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px #666'}}>Revenu</h1>
+        
+        <div style={{alignItems: 'center', justifyContent: 'center', marginLeft:'250px' }}>
+       
+        <div  style={{ alignItems: 'center', justifyContent: 'center', width:'1200px',height:"600px"}} className="grid-two-item grid-common grid-c4">
         <div className="grid-c-title">
             <h3 className="grid-c-title-text">All Revenu</h3>
             <button className="grid-c-title-icon">
@@ -66,6 +70,8 @@ const Revenu = ({userData}) => {
             </div>
         </div>
     </div>
+      </div>
+      </div>
       </div>
   )
 }
