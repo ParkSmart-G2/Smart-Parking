@@ -15,8 +15,9 @@ const Footer = () => {
       <div className="footer-col">
         <h4>How it works?</h4>
       </div>
+      
       <div className="footer-col">
-        <h4>Contact</h4>
+        <h4 style={{ display: 'flex', alignItems: 'center', color: '#bdb6b6' ,marginLeft: '96px',marginBottom:'8px'}}>Contact</h4>
         <div className="contact-lines">
          
           <div style={{ display: 'flex', alignItems: 'center', color: '#bdb6b6' ,marginLeft: '50px',marginBottom:'8px'}}>
@@ -26,6 +27,11 @@ const Footer = () => {
           <div style={{ display: 'flex', alignItems: 'center', color: '#bdb6b6', marginLeft: '70px' }}>
             <LocalPhoneIcon style={{ marginRight: '8px' }} />
             <p>+216 3456789</p>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', color: '#bdb6b6', marginLeft: '60px',marginTop:"8px" }}>
+            
+            <p>📍  Aéroport de Tunis-Carthage</p>
+
           </div>
         </div>
       </div>

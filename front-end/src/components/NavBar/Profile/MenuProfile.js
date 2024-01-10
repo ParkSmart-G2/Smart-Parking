@@ -1,3 +1,4 @@
+
 export const MenuProfile   = [
     {
       title: 'Profile',
@@ -13,8 +14,9 @@ export const MenuProfile   = [
     },
     {
       title: 'Logout',
-      path: '/',
+      path: '/Logout',
       cName: 'dropdown-link'
+  
     },
    
    

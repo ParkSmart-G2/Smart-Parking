@@ -94,6 +94,11 @@ function Navbar({ userData }) {
                }
               </li>
               <li className='nav-item'>
+                <Link to='/Map' className='nav-links' onClick={closeMobileMenu}>
+                 📍 Our Location 
+                </Link>
+              </li>
+              <li className='nav-item'>
                 <Link to='/Home' className='nav-links' onClick={closeMobileMenu}>
                   Home
                 </Link>
