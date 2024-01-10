@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Reservation = require('./Reservation'); 
+const Reservation = require('./reservation'); 
 
 const userSchema = new mongoose.Schema({
   email: {

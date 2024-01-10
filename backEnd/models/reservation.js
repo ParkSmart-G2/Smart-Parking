@@ -43,12 +43,14 @@
 
 const mongoose = require('mongoose');
 
-let Reservation;
 
-try {
-  Reservation = mongoose.model('Reservation');
-} catch (error) {
+
+
   const reservationSchema = new mongoose.Schema({
+    email: {
+      type: String,
+      required: true,
+    },
     reservationName: {
       type: String,
       required: true,
@@ -91,8 +93,8 @@ try {
     
   });
 
-  Reservation = mongoose.model('Reservation', reservationSchema);
-}
+  let Reservation = mongoose.model('Reservation', reservationSchema);
+
 
 module.exports = Reservation;
 

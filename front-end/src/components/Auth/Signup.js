@@ -221,7 +221,7 @@ const SignUp = () => {
             </>
           )}
     <div>
-    <button  className="SignUpButton" type="submit">Sign Up</button>
+    <button  className="SignUpButton" onClick={handleSubmit} type="submit">Sign Up</button>
     </div>
     </div>
    
