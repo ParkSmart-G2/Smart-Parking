@@ -3,7 +3,7 @@ import "./App.css";
 import { useState } from "react";
 import SignUp from "./components/Auth/Signup";
 import SignIn from "./components/Auth/Signin";
-import Home from "./components/home";
+import Home from "./components/Home";
 import AboutUs from "./components/AboutUs";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
