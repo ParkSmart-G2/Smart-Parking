@@ -107,7 +107,7 @@ router.post('/create', async (req, res) => {
   console.log('Request Body:', req.body); // Log the entire request body
 
   try {
-    const { reservationName, carType, plateNumber, serialNumber, secondNumber, bookingType, reservationTime, numberOfHours, startingDate, numberOfDays, price } = req.body;
+    const { reservationName, carType, plateNumber, serialNumber, secondNumber, bookingType, reservationTime, numberOfHours, startingDate, numberOfDays, price,email } = req.body;
 
     const currentTime = new Date();
     const endTimeLimit = new Date(currentTime);
@@ -134,6 +134,7 @@ router.post('/create', async (req, res) => {
     reservationEndTime.setHours(reservationStartTime.getHours() + reservationDuration);
 
     const newReservation = new Reservation({
+      email,
       reservationName,
       carType,
       plateNumber,

@@ -1,7 +1,7 @@
 
 const User = require('../models/user')
 
-const Reservation = require('../models/Reservation');
+const Reservation = require('../models/reservation');
 
 const Feedback = require('../models/feedback');
 

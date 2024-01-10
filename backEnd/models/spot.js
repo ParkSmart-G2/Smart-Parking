@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Reservation = require('./Reservation'); 
+const Reservation = require('./reservation'); 
 
 const spotSchema = new mongoose.Schema({
     spotNumber: {
