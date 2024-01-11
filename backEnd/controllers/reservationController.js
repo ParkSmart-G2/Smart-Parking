@@ -99,8 +99,8 @@ const getAllReservationsCurrent = async (req, res) => {
   try {
     const userEmail = req.params.userEmail; 
     console.log(userEmail)
-    const currentReservations = await Reservation.find({ 'user.email': userEmail, state: 'current' });
-    
+    const currentReservations = await Reservation.find({ email: userEmail}); // remove the state property
+    console.log(currentReservations);
     res.status(200).json({ reservations: currentReservations });
   } catch (error) {
     console.error(error);
@@ -122,13 +122,10 @@ const getUserInParkingSpot = async (req, res) => {
 
 
 
-
-
-
 const getAllReservationHistory = async (req, res) => {
   try {
     const userEmail = req.params.userEmail; 
-    const oldReservations = await Reservation.find({ 'user.email': userEmail, state: 'userExit' });
+    const oldReservations = await Reservation.find({ email: userEmail  });
     res.status(200).json({ reservations: oldReservations });
   } catch (error) {
     console.error(error);

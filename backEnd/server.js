@@ -6,7 +6,7 @@ const authRoute = require("./routes/user");
 const reservationRoute = require("./routes/reservation");
 const adminRoute = require("./routes/admin");
 const spotRoute = require("./routes/spot");
-const profileRoute = require("./routes/profile"); // Add the new profile route
+const profileRoute = require("./routes/profileRoutes"); // Add the new profile route
 const dotenv = require("dotenv");
 
 mongoose.connect("mongodb://0.0.0.0/SmartPark", {

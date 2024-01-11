@@ -493,10 +493,10 @@
 import React, { useState } from 'react';
 import { Box, Paper, Typography, TextField, Button, Avatar, Grid, Container } from '@mui/material';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ProfileSettings = ({ userData }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [editing, setEditing] = useState(false);
   const [saveEditing, setSaveEditing] = useState(false);
   const [cancelEditing, setCancelEditing] = useState(false);
@@ -553,7 +553,7 @@ const ProfileSettings = ({ userData }) => {
 
       // Redirect to the user profile page after 2 seconds
       setTimeout(() => {
-        history.push('/user-profile');
+        navigate('/user-profile');
       }, 2000);
     } catch (error) {
       console.error(error.response.data); // Handle errors
