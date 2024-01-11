@@ -510,10 +510,7 @@ const ProfileSettings = ({ userData }) => {
 
   const handleInputChange = (e) => {
     // Update state based on the input field
-    switch (e.target.name) {
-      case 'newEmail':
-        setNewEmail(e.target.value);
-        break;
+        switch (e.target.name) {
       case 'newFirstName':
         setNewFirstName(e.target.value);
         break;
@@ -538,7 +535,6 @@ const ProfileSettings = ({ userData }) => {
     try {
       // Make API call to update profile
       const response = await axios.put(`/api/profile/${userData.email}`, {
-        newEmail,
         newFirstName,
         newLastName,
         newPassword,
@@ -567,7 +563,7 @@ const ProfileSettings = ({ userData }) => {
     setSaveEditing(false);
 
     // Reset other state variables
-    setNewEmail(userData.email);
+
     setNewFirstName(userData.firstName);
     setNewLastName(userData.lastName);
     setNewPassword('');

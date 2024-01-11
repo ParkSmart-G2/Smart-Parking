@@ -52,15 +52,22 @@ const Profile = ({ userData }) => {
 
   const calculateCheckoutTime = (startTime, duration, bookingType) => {
     const checkoutTime = new Date(startTime);
-
+  
     if (bookingType === 'hours') {
       checkoutTime.setHours(checkoutTime.getHours() + duration);
     } else if (bookingType === 'days') {
       checkoutTime.setDate(checkoutTime.getDate() + duration);
     }
-
+  
+    if (checkoutTime.getHours() >= 24) {
+    
+      checkoutTime.setHours(checkoutTime.getHours() - 24);
+      checkoutTime.setDate(checkoutTime.getDate() + 1);
+    }
+  
     return checkoutTime;
   };
+  
 
   return (
     <Grid container spacing={3}>
@@ -117,28 +124,50 @@ const Profile = ({ userData }) => {
                 <Typography variant='h5' color={'black'}>
                   Current Reservations
                 </Typography>
-                {pendingReservations.map((reservation) => (
-                  <Paper
-                    key={reservation._id}
-                    elevation={3}
-                    style={{
-                      marginBottom: '10px',
-                      border: '2px solid #DADADA',
-                      padding: '10px',
-                      backgroundColor: '#E1E4E7',
-                      color: 'black',
-                    }}
-                  >
-                    <Typography>
-                      {`Your Reservation is at: ${new Date(reservation.startTime).toLocaleString()} for ${
-                        reservation.duration
-                      } ${reservation.bookingType}      `}
-                      <Button style={{ background: 'linear-gradient(214.02deg, #2998FF 6.04%, #671AE4 92.95%)', color: '#fff', padding: '10px 20px', borderRadius: '5px', border: 'none', cursor: 'pointer' }}>
-                        Check Reservation
-                      </Button>
-                    </Typography>
-                  </Paper>
-                ))}
+                {pendingReservations
+  .filter((reservation) => {
+    // Calculate the checkout time for each reservation
+    const checkoutTime = calculateCheckoutTime(
+      reservation.reservationTime,
+      reservation.bookingType === 'hours' ? reservation.numberOfHours : reservation.numberOfDays,
+      reservation.bookingType
+    );
+
+    // Check if the calculated checkout time is more than the current local time
+    return checkoutTime > new Date();
+  })
+  .map((reservation) => (
+    <Paper
+      key={reservation._id}
+      elevation={3}
+      style={{
+        marginBottom: '10px',
+        border: '2px solid #DADADA',
+        padding: '10px',
+        backgroundColor: '#E1E4E7',
+        color: 'black',
+      }}
+    >
+      <Typography>
+        Reservation Time: {new Date(reservation.reservationTime).toLocaleString()}
+        {reservation.bookingType === 'hours' && <p>Duration: {reservation.numberOfHours} hours</p>}
+        {reservation.bookingType === 'days' && <p>Duration: {reservation.numberOfDays} days</p>}
+        <Button
+          style={{
+            background: 'linear-gradient(214.02deg, #2998FF 6.04%, #671AE4 92.95%)',
+            color: '#fff',
+            padding: '10px 20px',
+            borderRadius: '5px',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+        >
+          Check Reservation
+        </Button>
+      </Typography>
+    </Paper>
+  ))}
+
               </Box>
             </Paper>
           </Box>
@@ -149,30 +178,49 @@ const Profile = ({ userData }) => {
                 <Typography variant='h5' color={'black'}>
                   Reservation History
                 </Typography>
-                {historyReservations.map((reservation) => (
-                  <Paper
-                    key={reservation._id}
-                    elevation={3}
-                    style={{
-                      marginBottom: '10px',
-                      border: '2px solid #DADADA',
-                      padding: '10px',
-                      backgroundColor: '#E1E4E7',
-                      color: 'black',
-                    }}
-                  >
-                    <Typography>
-                      {`ENTRANCE: ${new Date(reservation.startTime).toLocaleString()} || EXIT AT : ${calculateCheckoutTime(
-                        reservation.startTime,
-                        reservation.duration,
-                        reservation.bookingType
-                      ).toLocaleString()}    `}
-                      <Button style={{ background: 'linear-gradient(214.02deg, #2998FF 6.04%, #671AE4 92.95%)', color: '#fff', padding: '10px 20px', borderRadius: '5px', border: 'none', cursor: 'pointer' }}>
-                        Delete
-                      </Button>
-                    </Typography>
-                  </Paper>
-                ))}
+                {historyReservations
+  .filter((reservation) => {
+    // Calculate the checkout time for each reservation
+    const checkoutTime = calculateCheckoutTime(
+      reservation.reservationTime,
+      reservation.bookingType === 'hours' ? reservation.numberOfHours : reservation.numberOfDays,
+      reservation.bookingType
+    );
+
+    // Check if the calculated checkout time is more than the current local time
+    return checkoutTime <= new Date();
+  })
+  .map((reservation) => (
+    <Paper
+      key={reservation._id}
+      elevation={3}
+      style={{
+        marginBottom: '10px',
+        border: '2px solid #DADADA',
+        padding: '10px',
+        backgroundColor: '#E1E4E7',
+        color: 'black',
+      }}
+    >
+      <Typography>
+        Reservation Time: {new Date(reservation.reservationTime).toLocaleString()}
+        {reservation.bookingType === 'hours' && <p>Duration: {reservation.numberOfHours} hours</p>}
+        {reservation.bookingType === 'days' && <p>Duration: {reservation.numberOfDays} days</p>}
+        <Button
+          style={{
+            background: 'linear-gradient(214.02deg, #2998FF 6.04%, #671AE4 92.95%)',
+            color: '#fff',
+            padding: '10px 20px',
+            borderRadius: '5px',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+        >
+          Check Reservation
+        </Button>
+      </Typography>
+    </Paper>
+  ))}
               </Box>
             </Paper>
           </Box>

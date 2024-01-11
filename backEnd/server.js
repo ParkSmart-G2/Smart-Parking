@@ -27,7 +27,7 @@ app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api", adminRoute);
 app.use("/api/reservation", reservationRoute);
-app.use("/api/spot", spotRoute);
+//app.use("/api/spot", spotRoute);
 app.use("/api/profile", profileRoute); // Use the new profile route
 
 app.listen(port, () => {
