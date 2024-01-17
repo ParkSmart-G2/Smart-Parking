@@ -164,6 +164,7 @@ const Profile = ({ userData }) => {
         Reservation Time: {new Date(reservation.reservationTime).toLocaleString()}
         {reservation.bookingType === 'hours' && <p>Duration: {reservation.numberOfHours} hours</p>}
         {reservation.bookingType === 'days' && <p>Duration: {reservation.numberOfDays} days</p>}
+<<<<<<< HEAD
      
         <Link to={`/reservation-details/${reservation._id}`} style={{ textDecoration: 'none' }}>
   <Button
@@ -179,6 +180,20 @@ const Profile = ({ userData }) => {
     Check Reservation
   </Button>
 </Link>
+=======
+        <Button
+          style={{
+            background: 'linear-gradient(214.02deg, #2998FF 6.04%, #671AE4 92.95%)',
+            color: '#fff',
+            padding: '10px 20px',
+            borderRadius: '5px',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+        >
+          Check Reservation
+        </Button>
+>>>>>>> 20bf4e88ac938d8ea56415a1f160b2c04cd092f7
       </Typography>
     </Paper>
   ))}
@@ -221,6 +236,7 @@ const Profile = ({ userData }) => {
         Reservation Time: {new Date(reservation.reservationTime).toLocaleString()}
         {reservation.bookingType === 'hours' && <p>Duration: {reservation.numberOfHours} hours</p>}
         {reservation.bookingType === 'days' && <p>Duration: {reservation.numberOfDays} days</p>}
+<<<<<<< HEAD
         <Link to={`/reservation-details/${reservation._id}`} style={{ textDecoration: 'none' }}>
   <Button
     style={{
@@ -235,6 +251,20 @@ const Profile = ({ userData }) => {
     Check Reservation
   </Button>
 </Link>
+=======
+        <Button
+          style={{
+            background: 'linear-gradient(214.02deg, #2998FF 6.04%, #671AE4 92.95%)',
+            color: '#fff',
+            padding: '10px 20px',
+            borderRadius: '5px',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+        >
+          Check Reservation
+        </Button>
+>>>>>>> 20bf4e88ac938d8ea56415a1f160b2c04cd092f7
       </Typography>
     </Paper>
   ))}

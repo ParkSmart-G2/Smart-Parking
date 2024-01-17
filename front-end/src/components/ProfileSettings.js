@@ -3,6 +3,7 @@
 import React, { useState,useEffect } from 'react';
 import { Box, Paper, Typography, TextField, Button, Avatar,Grid,Container } from '@mui/material';
 import axios from 'axios';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 import { IoSettings } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
@@ -15,6 +16,12 @@ const ProfileSettings = ({setUserData,userData } ) => {
   const navigate = useNavigate();
 
   // All Edit 
+=======
+import { useNavigate } from 'react-router-dom';
+
+const ProfileSettings = ({ userData }) => {
+  const navigate = useNavigate();
+>>>>>>> 20bf4e88ac938d8ea56415a1f160b2c04cd092f7
   const [editing, setEditing] = useState(false);
   const [saveEditing, setSaveEditing]=useState(false);
   const [cancelEditing, setCancelEditing]=useState(false);
@@ -53,6 +60,7 @@ const ProfileSettings = ({setUserData,userData } ) => {
       localStorage.setItem("newPhoneNumber", newPhoneNumber);
     };
 
+<<<<<<< HEAD
     window.addEventListener('beforeunload', saveUserDataBeforeUnload);
 
     return () => {
@@ -60,6 +68,41 @@ const ProfileSettings = ({setUserData,userData } ) => {
     };
   }, [newEmail, newFirstName, newLastName, newPassword, newCin, newPhoneNumber]);
   
+=======
+  const handleInputChange = (e) => {
+    // Update state based on the input field
+        switch (e.target.name) {
+      case 'newFirstName':
+        setNewFirstName(e.target.value);
+        break;
+      case 'newLastName':
+        setNewLastName(e.target.value);
+        break;
+      case 'newPassword':
+        setNewPassword(e.target.value);
+        break;
+      case 'newPlateNumber':
+        setNewPlateNumber(e.target.value);
+        break;
+      case 'newPhoneNumber':
+        setNewPhoneNumber(e.target.value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleUpdateProfile = async () => {
+    try {
+      // Make API call to update profile
+      const response = await axios.put(`/api/profile/${userData.email}`, {
+        newFirstName,
+        newLastName,
+        newPassword,
+        newPlateNumber,
+        newPhoneNumber,
+      });
+>>>>>>> 20bf4e88ac938d8ea56415a1f160b2c04cd092f7
 
   useEffect(() => {
     const loadUserDataOnLoad = () => {
@@ -68,13 +111,35 @@ const ProfileSettings = ({setUserData,userData } ) => {
       // ... (load other fields)
     };
 
+<<<<<<< HEAD
     window.onload = loadUserDataOnLoad;
+=======
+      // Redirect to the user profile page after 2 seconds
+      setTimeout(() => {
+        navigate('/user-profile');
+      }, 2000);
+    } catch (error) {
+      console.error(error.response.data); // Handle errors
+    }
+  };
+>>>>>>> 20bf4e88ac938d8ea56415a1f160b2c04cd092f7
 
     return () => {
       window.onload = null;
     };
   }, []);
 
+<<<<<<< HEAD
+=======
+    // Reset other state variables
+
+    setNewFirstName(userData.firstName);
+    setNewLastName(userData.lastName);
+    setNewPassword('');
+    setNewPlateNumber(userData.plateNumber);
+    setNewPhoneNumber(userData.phoneNumber);
+  };
+>>>>>>> 20bf4e88ac938d8ea56415a1f160b2c04cd092f7
 
 const handleUpdate = async () => {
   
