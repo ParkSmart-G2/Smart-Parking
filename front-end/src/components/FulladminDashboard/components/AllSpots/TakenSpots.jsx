@@ -39,7 +39,7 @@ const TakenSpots = () => {
 
         <div className="grid-content">
             <div className="grid-items">
-            <span className="text-silver-v1">{AllSpots} Spots In The Parking Space</span>
+            <span className="text-silver-v1">3 Cars In The Parking Space</span>
             </div>
         </div>
     </div>

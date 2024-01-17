@@ -3,14 +3,17 @@ import "./ContentTop.css";
 import { useContext } from "react";
 import { SidebarContext } from "../../context/sidebarContext";
 
+
 const ContentTop = () => {
   const { toggleSidebar } = useContext(SidebarContext);
   return (
     <div className="main-content-top">
         <div className="content-top-left">
+      
             <button type="button" className="sidebar-toggler" onClick={() => toggleSidebar() }>
                 <img src={ iconsImgs.menu } alt="" />
             </button>
+           
             <h3 className=" --clr-pumpkin">Main</h3>
         </div>
         <div className="content-top-btns">

@@ -5,7 +5,7 @@ import DropdownServices from './Services/DropdownServices';
 import DropdownProfile from './Profile/DropdownProfile';
 import DropdownReservation from './Reservation/DropdownReservation';
 import { Button } from './Button';
-
+import { FaHome } from "react-icons/fa";
 function Navbar({ userData }) {
   const location = useLocation();
   const isLoginPage = location.pathname === '/';
@@ -98,9 +98,14 @@ function Navbar({ userData }) {
                  📍 Our Location 
                 </Link>
               </li>
-              <li className='nav-item'>
-                <Link to='/Home' className='nav-links' onClick={closeMobileMenu}>
-                  Home
+              {/* <li className='nav-item'>
+                <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
+                🗨️
+                </Link>
+              </li> */}
+              <li style ={{display: "flex", alignItems: "center" }} className='nav-item'>
+                <Link to='/Home' style ={{display: "flex", alignItems: "center" }}  className='nav-links' onClick={closeMobileMenu}>
+                <FaHome style={{ flex:"center" ,marginRight: "8px" }} />  Home
                 </Link>
               </li>
               {userData && (

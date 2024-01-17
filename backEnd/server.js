@@ -6,7 +6,7 @@ const authRoute = require("./routes/user");
 const reservationRoute = require("./routes/reservation");
 const adminRoute = require("./routes/admin");
 const spotRoute = require("./routes/spot");
-const profileRoute = require("./routes/profile"); // Add the new profile route
+const profileRoute = require("./routes/profileRoutes"); 
 const dotenv = require("dotenv");
 
 mongoose.connect("mongodb://0.0.0.0/SmartPark", {
@@ -25,9 +25,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoute);
-app.use("/api", adminRoute);
+app.use("/api",adminRoute);
 app.use("/api/reservation", reservationRoute);
-app.use("/api/spot", spotRoute);
+// app.use("/api/spot", spotRoute);
 app.use("/api/profile", profileRoute); // Use the new profile route
 
 app.listen(port, () => {

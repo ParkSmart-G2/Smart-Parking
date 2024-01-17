@@ -22,6 +22,7 @@ import Footer from "./components/Footer/Footer.js";
 import AdminDash from "./components/AdminDashboard.js";
 import AdminDashboard from "./components/AdminDashboard.js";
 import Map from "./components/Map.js";
+import CurrentReservation from "./components/CurrentReservation";
 
 import Dash from "./components/FulladminDashboard/Dash.jsx";
 // import AllUsers from "./components/FulladminDashboard/components/AllUsers/AllUsers.jsx"
@@ -29,7 +30,7 @@ import AllUsers from "./components/FulladminDashboard/SideBarComponenets/AllUser
 import  Messages from "./components/FulladminDashboard/SideBarComponenets/Messages"
 import ParkingSpots  from "./components/FulladminDashboard/SideBarComponenets/ParkingSpots"
 import Revenu from "./components/FulladminDashboard/SideBarComponenets/Revenu"
-
+import Test from "./components/test"
 
 function App() {
   const [userData, setUserData] = useState({});
@@ -40,20 +41,24 @@ function App() {
         <Navbar userData={userData} />
 
         <Routes>
+      
           <Route path="/Home" element={<Home userData={userData} />} />
           <Route path="/" element={<SignIn setUserData={setUserData} />} />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/About-Us" element={<AboutUs userData={userData} />} />
           <Route path="/services" element={<Services userData={userData} />} />
           <Route path="/contact" element={<Contact userData={userData} />} />
-
+          <Route path="/Test" element={<Test userData={userData} />} />
 {/* admindashboard links */}
 <Route path="/AllUsers" element={<AllUsers userData={userData}/>} />
 <Route path="/Messages" element={<Messages userData={userData}/>} />
 <Route path="/ParkingSpots" element={<ParkingSpots  userData={userData}/>} />
 <Route path="/Revenu" element={<Revenu  userData={userData}/>} />
+<Route path="/reservation-details/:reservationId" element= {<CurrentReservation userData={userData}/> }/>
+          
 
-          {/* admindashboard links */}
+        
+        
 
           <Route
             path="/Reservation"
@@ -76,7 +81,7 @@ function App() {
 <Route path="/Payment" element={<Payment userData={userData}/>} />
 <Route path="/Notification" element={<Notification userData={userData}/>} />
 <Route path="/Chat" element={<Chat userData={userData}/>} />
-<Route path="/My-Settings" element={<ProfileSettings userData={userData}/>} />
+<Route path="/My-Settings" element={<ProfileSettings setUserData={setUserData} userData={userData}  />} />
 <Route path="/Wallet" element={<Wallet userData={userData}/>} />
 <Route path="/Prices" element={<Prices userData={userData}/>} />
 

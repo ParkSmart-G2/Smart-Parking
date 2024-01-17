@@ -17,10 +17,10 @@ import TakenSpots from "../AllSpots/TakenSpots"
 
 const ContentMain = () => {
   return (
-    <div className="main-content-holder">
+    <div style={{marginRight:"2px"}} className="main-content-holder">
         <div className="content-grid-one">
-        <AvailableSpots  /> 
-        <UsersInSpot />
+        <AllSpots />
+        <TakenSpots  />  
             <Report />
             
            
@@ -38,7 +38,7 @@ const ContentMain = () => {
         <TakenSpots  />  
         <EmptySpots  />
         </div>
-        <div style={{ marginLeft: '80px',alignItems: 'center', justifyContent: 'center', width:'1500px',height:"600px"}}>
+        <div style={{ marginLeft: '230px',alignItems: 'center', justifyContent: 'center', width:'1500px',height:"600px"}}>
         
         <AllRevenu />
         

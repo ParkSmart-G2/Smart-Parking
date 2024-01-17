@@ -32,11 +32,11 @@ const Revenu = ({userData}) => {
     <div className='Dash'>
         <Sidebar  userData={userData}/>
         <div   >
-        <h1 style={{marginLeft:'230px',  fontSize: '55px',textTransform: 'uppercase',textAlign: 'center',fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px #666'}}>Revenu</h1>
+        <h1 style={{marginLeft:'170px',  fontSize: '35px',textTransform: 'uppercase',textAlign: 'center',fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px #666'}}>Revenu 📈 </h1>
         
-        <div style={{alignItems: 'center', justifyContent: 'center', marginLeft:'250px' }}>
+        <div style={{alignItems: 'center', justifyContent: 'center', marginLeft:'130px' }}>
        
-        <div  style={{ alignItems: 'center', justifyContent: 'center', width:'1200px',height:"600px"}} className="grid-two-item grid-common grid-c4">
+        <div  style={{ alignItems: 'center', justifyContent: 'center', width:'1000px',height:"600px"}} className="grid-two-item grid-common grid-c4">
         <div className="grid-c-title">
             <h3 className="grid-c-title-text">All Revenu</h3>
             <button className="grid-c-title-icon">

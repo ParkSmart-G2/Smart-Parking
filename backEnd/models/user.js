@@ -29,11 +29,12 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  plateNumber: {
+  cin: {
     type: String,
     required: true,
     unique: true,
     trim: true,
+    
   },
   phoneNumber: { 
     type: String, 

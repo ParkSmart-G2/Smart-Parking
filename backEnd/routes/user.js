@@ -3,7 +3,8 @@ const { register, login, logout } = require('../controllers/Auth');
 const {getAllReservationHistory,getAllReservationsCurrent,getUserInParkingSpot} = require('../controllers/reservationController')
 const { verifyToken } = require('../middlewares/authJWT');
 
- 
+ const {updateUser}= require('../controllers/userController');
+
     // Auth routes
     router.post('/register', register);
     router.post('/login', login);
@@ -11,9 +12,9 @@ const { verifyToken } = require('../middlewares/authJWT');
 
     //Profile
     
+    router.route('/edit/:userId').put(updateUser)
 
-
-    //Reservation
+       //Reservation
 
 router.get('/ReservationsPending/:userEmail',getAllReservationsCurrent)    
 router.get('/ReservationHistory/:userEmail',getAllReservationHistory)

@@ -104,10 +104,10 @@ const {createReservation} = require('../controllers/reservationController')
 
 
 router.post('/create', async (req, res) => {
-  console.log('Request Body:', req.body); // Log the entire request body
+  console.log('Request Body:', req.body);
 
   try {
-    const { reservationName, carType, plateNumber, serialNumber, secondNumber, bookingType, reservationTime, numberOfHours, startingDate, numberOfDays, price,email } = req.body;
+    const { reservationName, carType, plateNumber, serialNumber, secondNumber, bookingType, reservationTime, numberOfHours, startingDate, numberOfDays, price, email } = req.body;
 
     const currentTime = new Date();
     const endTimeLimit = new Date(currentTime);
@@ -133,6 +133,7 @@ router.post('/create', async (req, res) => {
     const reservationEndTime = new Date(reservationStartTime);
     reservationEndTime.setHours(reservationStartTime.getHours() + reservationDuration);
 
+  
     const newReservation = new Reservation({
       email,
       reservationName,
@@ -149,6 +150,10 @@ router.post('/create', async (req, res) => {
       parkingPlace,
     });
 
+    // Generate and set the QR code for the reservation
+    await newReservation.generateQRCode();
+
+    // Save the reservation with the QR code
     await newReservation.save();
 
     console.log('Reservation created successfully:', newReservation);
@@ -159,6 +164,21 @@ router.post('/create', async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });
+router.get('/:reservationId', async (req, res) => {
+  try {
+    const reservation = await Reservation.findById(req.params.reservationId);
+
+    if (!reservation) {
+      return res.status(404).json({ message: 'Reservation not found' });
+    }
+
+    res.status(200).json({ reservation });
+  } catch (error) {
+    console.error('Error fetching reservation:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
 
 // Helper function to find an available parking place
 function findAvailableParkingPlace(existingReservations) {

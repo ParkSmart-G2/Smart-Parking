@@ -1,8 +1,15 @@
 export const MenuService  = [
+  
     {
       title: 'General',
       path: '/Services',
       cName: 'dropdown-link'
+    },
+    {
+      title: 'Give Feedback',
+      path: '/contact',
+      cName: 'dropdown-link',
+      sectionId: 'process-section',
     },
     {
       title: 'How to Reserve',
@@ -17,8 +24,9 @@ export const MenuService  = [
     {
       title: 'Processe',
       path: '/Services',
-      cName: 'dropdown-link'
+      cName: 'dropdown-link',
+      sectionId: 'process-section',
     }
     
-   
+    
   ];

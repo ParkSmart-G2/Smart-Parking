@@ -11,36 +11,94 @@ function isEmailValid(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
+// Custom validation for CIN
+const isCINValid = (cin) => {
+  return /^\d{8}$/.test(cin);
+};
+// function isPlateNumberValid(plateNumber) {
+//   const plateNumberRegex1 = /^\d+\s?نت$/;
+//   const plateNumberRegex2 = /^\d+\s?rs$/;
+//   const plateNumberRegex3 = /^0[1-9]$|^1\d$|^2[0-3]$/;
+//   const plateNumberRegex4 = /^(\d{1,4}\s?تونس\s?\d{1,2}|[1-9]\d{4})$/;
 
-function isPlateNumberValid(plateNumber) {
-  const plateNumberRegex1 = /^\d+\s?نت$/;
-  const plateNumberRegex2 = /^\d+\s?rs$/;
-  const plateNumberRegex3 = /^0[1-9]$|^1\d$|^2[0-3]$/;
-  const plateNumberRegex4 = /^(\d{1,4}\s?تونس\s?\d{1,2}|[1-9]\d{4})$/;
-
-  return (
-    plateNumberRegex1.test(plateNumber) ||
-    plateNumberRegex2.test(plateNumber) ||
-    plateNumberRegex3.test(plateNumber) ||
-    plateNumberRegex4.test(plateNumber)
-  );
-}
+//   return (
+//     plateNumberRegex1.test(plateNumber) ||
+//     plateNumberRegex2.test(plateNumber) ||
+//     plateNumberRegex3.test(plateNumber) ||
+//     plateNumberRegex4.test(plateNumber)
+//   );
+// }
 
 // Register
+// exports.register = async (req, res) => {
+//   const { firstName, lastName, plateNumber, password, email,phoneNumber, isAdmin, codeAdmin,image } = req.body;
+
+//   // Validate email format
+//   if (!isEmailValid(email)) {
+//     return res.status(400).send({ message: 'Invalid email format.' });
+//   }
+
+//   if (!firstName || !lastName || !plateNumber || !password || !email || !phoneNumber) {
+//     return res.status(400).send({ message: 'All fields are required.' });
+//   }
+
+//   if (!isPlateNumberValid(plateNumber)) {
+//     return res.status(400).send({ message: 'Invalid plate number format.' });
+//   }
+  
+//   if (!isPhoneNumberValid(phoneNumber)) {
+//     return res.status(400).send({ message: 'Invalid phone number format.' });
+//   }
+  
+//   try {
+//     // Check if it's an admin signup and validate admin code
+//     if (isAdmin) {
+//       if (codeAdmin !== 'rbk-smart2023') {
+//         return res.status(400).send({ message: 'Invalid admin code' });
+//       }
+//     }
+
+//     const existingUser = await User.findOne({ email });
+
+//     if (existingUser) {
+//       return res.status(400).send({ message: 'Email already exists.' });
+//     }
+
+//     const hashedPassword = await bcrypt.hash(password, 10);
+
+//     const newUser = new User({
+//       firstName,
+//       lastName,
+//       plateNumber,
+//       password: hashedPassword,
+//       email,
+//       phoneNumber,
+//       isAdmin,
+//       image,
+//     });
+
+//     await newUser.save();
+
+//     return res.status(200).send({ message: `User ${email} has been created successfully.` });
+//   } catch (err) {
+//     return res.status(400).send({ message: err.message || 'Invalid credentials: username and email should be unique, password should be more than 6 characters.' });
+//   }
+// };
+
 exports.register = async (req, res) => {
-  const { firstName, lastName, plateNumber, password, email,phoneNumber, isAdmin, codeAdmin,image } = req.body;
+  const { firstName, lastName, cin, email, password, phoneNumber, isAdmin, codeAdmin,image } = req.body;
 
   // Validate email format
   if (!isEmailValid(email)) {
     return res.status(400).send({ message: 'Invalid email format.' });
   }
 
-  if (!firstName || !lastName || !plateNumber || !password || !email || !phoneNumber) {
+  if (!firstName || !lastName || !cin|| !password || !email || !phoneNumber) {
     return res.status(400).send({ message: 'All fields are required.' });
   }
 
-  if (!isPlateNumberValid(plateNumber)) {
-    return res.status(400).send({ message: 'Invalid plate number format.' });
+  if (!isCINValid(cin)) {
+    return res.status(400).send({ message: 'Invalid CIN format. CIN must have exactly 8 numbers.' });
   }
   
   if (!isPhoneNumberValid(phoneNumber)) {
@@ -66,9 +124,9 @@ exports.register = async (req, res) => {
     const newUser = new User({
       firstName,
       lastName,
-      plateNumber,
-      password: hashedPassword,
+      cin,
       email,
+      password: hashedPassword,
       phoneNumber,
       isAdmin,
       image,
@@ -81,6 +139,7 @@ exports.register = async (req, res) => {
     return res.status(400).send({ message: err.message || 'Invalid credentials: username and email should be unique, password should be more than 6 characters.' });
   }
 };
+
 
 // Login user
 exports.login = async (req, res) => {

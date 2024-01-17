@@ -93,8 +93,8 @@ const AllUsers  = ({userData}) => {
   
         <Sidebar  userData={userData}/>
        
-        <div   style={{marginLeft:'220px'}} >
-        <h1 style={{marginLeft:'230px',  fontSize: '55px',textTransform: 'uppercase',textAlign: 'center',fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px #666'}}>Users informations</h1>
+        <div   style={{marginLeft:'30px'}} >
+        <h1 style={{marginLeft:'100px',  fontSize: '35px',textTransform: 'uppercase',textAlign: 'center',fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px #666'}}>Users Data 👥  </h1>
         
         <div className="content-grid-one">
       
@@ -129,32 +129,7 @@ const AllUsers  = ({userData}) => {
         
     </div>
 
-    <div  style={{  marginBottom: "20px" }} className="grid-one-item grid-common grid-c2">
-        <div className="grid-c-title">
-            <h3 className="grid-c-title-text">Current Reservation</h3>
-            <button className="grid-c-title-icon">
-                <img src={ iconsImgs.plus } />
-            </button>
-        </div>
-
-        <div className="grid-items">
-                {
-                    reservedUsers.map((user) => (
-                        <div className="grid-item" key = {user._id}>
-                            <div className="grid-item-l">
-                                <div className="avatar img-fit-cover">
-                                    <img src={ user.image } alt="" />
-                                </div>
-                                <p className="text">{ user.firstName }  { user.lastName } <span></span></p>
-                            </div>
-                            <div className="grid-item-r">
-                                <span className="text-scarlet">{ user.status }</span>
-                            </div>
-                        </div>
-                    ))
-                }
-            </div>
-    </div>
+    
 
     <div  style={{  marginBottom: "20px" }} className="grid-one-item grid-common grid-c2">
         <div className="grid-c-title">

@@ -32,10 +32,54 @@ const ParkingSpots = ({userData}) => {
   return (
     <div  className='Dash'>
     <Sidebar  userData={userData}/>
-    <div  className="main-content-holder" >
-        <h1>Parking Spots Informations</h1>
+    <div  style={{marginLeft:'30px'}} >
+    <h1 style={{marginLeft:'378px',  fontSize: '35px',textTransform: 'uppercase',textAlign: 'center',fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px #666'}}>Parking Spots Data 🅿</h1>
+
+       
         <div className="content-grid-one">
-          
+        <div className="grid-one-item grid-common grid-c2">
+        <div className="grid-c-title">
+            <h3 className="grid-c-title-text">All Parking Spots</h3>
+            <button className="grid-c-title-icon">
+                <img src={ iconsImgs.plus } />
+            </button>
+        </div>
+
+        <div className="grid-content">
+            <div className="grid-items">
+            <span className="text-silver-v1">{AllSpots} Spots In The Parking Space</span>
+            </div>
+        </div>
+    </div>
+
+    <div className="grid-one-item grid-common grid-c2">
+        <div className="grid-c-title">
+            <h3 className="grid-c-title-text">Total Of Taken Spots</h3>
+            <button className="grid-c-title-icon">
+                <img src={ iconsImgs.plus } />
+            </button>
+        </div>
+
+        <div className="grid-content">
+            <div className="grid-items">
+            <span className="text-silver-v1">3 Cars In The Parking Space</span>
+            </div>
+        </div>
+    </div>
+    <div className="grid-one-item grid-common grid-c2">
+        <div className="grid-c-title">
+            <h3 className="grid-c-title-text">Total Of Empty Spots</h3>
+            <button className="grid-c-title-icon">
+                <img src={ iconsImgs.plus } />
+            </button>
+        </div>
+
+        <div className="grid-content">
+            <div className="grid-items">
+            <span className="text-silver-v1">40 Spots In The Parking Space Are EMPTY</span>
+            </div>
+        </div>
+    </div>
 </div>
   </div>
   </div>

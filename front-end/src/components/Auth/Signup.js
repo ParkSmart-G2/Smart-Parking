@@ -14,7 +14,7 @@ const SignUp = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    plateNumber: "",
+    cin: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -54,7 +54,7 @@ const SignUp = () => {
     const {
       firstName,
       lastName,
-      plateNumber,
+      cin,
       email,
       password,
       confirmPassword,
@@ -65,7 +65,7 @@ const SignUp = () => {
       image,
     } = formData;
 
-    if (!firstName || !lastName || !plateNumber || !email || !password || !phoneNumber) {
+    if (!firstName || !lastName || !cin || !email || !password || !phoneNumber) {
       console.error("Please fill in all required fields");
       setError("Please fill in all required fields");
       return;
@@ -95,7 +95,7 @@ const SignUp = () => {
       const response = await axios.post(signUpPath, {
         firstName,
         lastName,
-        plateNumber,
+        cin,
         email,
         password,
         phoneNumber,
@@ -161,10 +161,10 @@ const SignUp = () => {
                   marginBottom: "10px",
                 }}
               />
-              <label>Plate Number:</label>
+              <label>Cin:</label>
               <input
                 type="text"
-                name="plateNumber"
+                name="cin"
                 onChange={handleInputChange}
                 required
                 style={{

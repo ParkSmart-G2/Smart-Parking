@@ -280,6 +280,7 @@ color:'#2998FF',
             },
           },
           {
+            sectionId: 'process-section',
             title: 'When you arrive',
             subtitle: 'When you arrive, our advanced technology identifies your license plate, granting you smooth access to your reserved spot. No tickets, no queues – just a hassle-free entrance.',
          
@@ -661,7 +662,7 @@ color:'#2998FF',
     <div style={wrappingContainerStyle}>
     <div style={containerStyle}>
       {containers.map((container, index) => (
-        <div key={index} style={container.styles.container}>
+        <div key={index} style={container.styles.container} id={container.sectionId}>
           <div>
             <div style={container.styles.title}>{container.title}</div>
             {container.subtitle && <div style={container.styles.subtitle}>{container.subtitle}</div>}

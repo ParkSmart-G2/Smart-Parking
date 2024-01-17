@@ -1,49 +1,6 @@
 
 const Reservation = require('../models/reservation');
 
-// const createReservation = async (req, res) => {
-//   try {
-//     const {
-//       reservationName,
-//       carType,
-//       plateNumber,
-//       serialNumber,
-//       secondNumber,
-//       bookingType,
-//       reservationTime,
-//       numberOfHours,
-//       startingDate,
-//       numberOfDays,
-//     } = req.body;
-
-//     // Check availability
-//     const isAvailable = await checkAvailability(plateNumber, serialNumber, secondNumber, reservationTime, bookingType, numberOfHours, startingDate, numberOfDays);
-//     if (!isAvailable) {
-//       return res.status(400).json({ message: 'Selected place is not available for the specified time.' });
-//     }
-
-//     // Save reservation to MongoDB
-//     const reservation = new Reservation({
-//       reservationName,
-//       carType,
-//       plateNumber,
-//       serialNumber,
-//       secondNumber,
-//       bookingType,
-//       reservationTime,
-//       numberOfHours,
-//       startingDate,
-//       numberOfDays,
-//     });
-
-//     await reservation.save();
-
-//     res.status(201).json({ message: 'Reservation successful' });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: 'Internal Server Error' });
-//   }
-// };
 
 // Check place availability
 const checkAvailability = async (plateNumber, serialNumber, secondNumber, reservationTime, bookingType, numberOfHours, startingDate, numberOfDays) => {
@@ -99,8 +56,8 @@ const getAllReservationsCurrent = async (req, res) => {
   try {
     const userEmail = req.params.userEmail; 
     console.log(userEmail)
-    const currentReservations = await Reservation.find({ 'user.email': userEmail, state: 'current' });
-    
+    const currentReservations = await Reservation.find({ email: userEmail}); // remove the state property
+    console.log(currentReservations);
     res.status(200).json({ reservations: currentReservations });
   } catch (error) {
     console.error(error);
@@ -122,13 +79,10 @@ const getUserInParkingSpot = async (req, res) => {
 
 
 
-
-
-
 const getAllReservationHistory = async (req, res) => {
   try {
     const userEmail = req.params.userEmail; 
-    const oldReservations = await Reservation.find({ 'user.email': userEmail, state: 'userExit' });
+    const oldReservations = await Reservation.find({ email: userEmail  });
     res.status(200).json({ reservations: oldReservations });
   } catch (error) {
     console.error(error);

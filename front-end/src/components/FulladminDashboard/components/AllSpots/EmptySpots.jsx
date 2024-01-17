@@ -31,7 +31,7 @@ const EmptySpots = () => {
   return (
     <div className="grid-one-item grid-common grid-c2">
         <div className="grid-c-title">
-            <h3 className="grid-c-title-text">Total Of Available Spots</h3>
+            <h3 className="grid-c-title-text">Total Of Empty Spots</h3>
             <button className="grid-c-title-icon">
                 <img src={ iconsImgs.plus } />
             </button>
@@ -39,7 +39,7 @@ const EmptySpots = () => {
 
         <div className="grid-content">
             <div className="grid-items">
-            <span className="text-silver-v1">{AllSpots} Spots In The Parking Space</span>
+            <span className="text-silver-v1">40 Spots In The Parking Space Are EMPTY</span>
             </div>
         </div>
     </div>

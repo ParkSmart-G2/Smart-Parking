@@ -97,12 +97,15 @@ const modifySpotsNumber = async (req, res) => {
 
 const getPayments = async (req, res) => {
     try {
-        const payments = await Reservation.find({}, 'reservationDetails.price');
+        const payments = await Reservation.find({}, 'price');
         
         // Extract prices and calculate the total sum
-        const totalSum = payments.reduce((sum, payment) => sum + payment.reservationDetails.price, 0);
+        const totalSum = payments.reduce((sum, payment) => sum + payment.price, 0);
 
-        res.status(200).json({ totalSum });
+        // Round to one decimal place
+        const roundedTotalSum = parseFloat(totalSum.toFixed(1));
+
+        res.status(200).json({ totalSum: roundedTotalSum });
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Internal Server Error' });
@@ -115,13 +118,13 @@ const getUserPayments = async (req, res) => {
             {
                 $group: {
                     _id: '$user.email', 
-                    totalPayment: { $sum: '$reservationDetails.price' } 
+                    totalPayment: { $sum: '$price' } 
                 }
             },
             {
                 $project: {
                     user: '$_id',
-                    totalPayment: 1,
+                    totalPayment: { $round: ['$totalPayment', 1] }, // Round to one decimal place
                     _id: 0
                 }
             }

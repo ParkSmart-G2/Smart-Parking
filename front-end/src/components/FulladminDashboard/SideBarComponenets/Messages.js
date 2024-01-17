@@ -39,8 +39,8 @@ const Messages = ({ userData }) => {
   return (
     <div className='Dash'>
       <Sidebar userData={userData} />
-      <div   style={{marginLeft:'10px'}} >
-        <h1 style={{marginLeft:'230px',  fontSize: '55px',textTransform: 'uppercase',textAlign: 'center',fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px #666'}}>Users Feedback</h1>
+      <div   style={{marginLeft:'150px'}} >
+        <h1 style={{marginLeft:'100px',  fontSize: '35px',textTransform: 'uppercase',textAlign: 'center',fontFamily: 'Arial, sans-serif', textShadow: '2px 2px 4px #666'}}>Users Feedback 📩</h1>
         
 
         <Box mt={2} p={2} >
@@ -67,11 +67,18 @@ const Messages = ({ userData }) => {
                 >
                   <ul>
                     <li>
-                    <p style={{color:'#2998FF'}}>Sent at: {feedback.createdAt}</p>
-                      <p>Name: {feedback.name}</p>
-                      <p>Email: {feedback.email}</p>
+                    <p style={{color:'#8A2BE2',fontSize: '12px'}}>Sent at: {new Date(feedback.createdAt).toLocaleString()}</p>
+                    <p>
+  <span style={{ color: '#8A2BE2',fontSize: '15px',textDecoration: 'underline'}}>Name: </span>
+  <span style={{fontSize: '15px' }}>{feedback.name}</span>
+</p>
+<p>
+  <span style={{  color: '#8A2BE2',fontSize: '15px',textDecoration: 'underline'}}>Email:</span>
+  <span style={{fontSize: '15px' }}>{feedback.email}</span>
+</p>
+                    
                       {expandedMessage === feedback ? (
-                  <Typography variant="body1">Message: {feedback.message}</Typography>
+                  <Typography   style={{ color: 'blue', fontSize: '16px', fontWeight: 'bold' ,marginTop:'20px' }}>Message: {feedback.message}</Typography>
                 ) : null}
                       
                     </li>
